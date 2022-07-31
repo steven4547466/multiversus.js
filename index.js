@@ -150,7 +150,7 @@ class Client {
 	}
 }
 
-export class CharacterData {
+class CharacterData {
 	static Shaggy = {
 		"id": "character_shaggy",
 		"displayName": "Shaggy",
