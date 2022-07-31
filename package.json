@@ -3,7 +3,6 @@
   "version": "1.0.4",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "author": "Elijah Conners <business@elijahpepe.com>",
   "license": "ISC",
   "dependencies": {
