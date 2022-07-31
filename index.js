@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 const base = 'https://dokken-api.wbagora.com'
 
-export class Client {
+class Client {
 	constructor(accessToken, apiKey, clientId, userAgent) {
 		this.accessToken = accessToken;
 		this.apiKey = apiKey;
@@ -256,4 +256,9 @@ export class CharacterData {
 		"displayName": "LeBron James",
 		"aliases": []
 	}
+}
+
+module.exports = {
+	Client,
+	CharacterData
 }
