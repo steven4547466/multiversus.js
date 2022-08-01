@@ -34,6 +34,7 @@ class Client {
 	handleData(data, resolve, reject) {
 		data.then(res => {
 			if (res.status == 401) {
+				this.refreshAppToken()
 				return reject({ code: 401, msg: 'Invalid access token.' });
 			}
 			return res.text();
@@ -64,6 +65,7 @@ class Client {
 			})
 			data.then(res => {
 				if (res.status == 401) {
+					this.refreshAppToken()
 					return reject({ code: 401, msg: 'Invalid access token.' });
 				}
 				return res.text();
@@ -101,6 +103,7 @@ class Client {
 			})
 			data.then(res => {
 				if (res.status == 401) {
+					this.refreshAppToken()
 					return reject({ code: 401, msg: 'Invalid access token.' });
 				}
 				return res.text();
