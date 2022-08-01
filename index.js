@@ -1,17 +1,48 @@
 const fetch = require('node-fetch');
+const SteamUser = require("steam-user");
 
 const base = 'https://dokken-api.wbagora.com'
 
 class Client {
-	constructor(accessToken, apiKey, clientId, userAgent) {
-		this.accessToken = accessToken;
+	constructor(username, password, apiKey, clientId, userAgent) {
+		this.steamUser = new SteamUser();
+		this.steamUser.logOn({accountName: username, password: password});
 		this.apiKey = apiKey;
 		this.clientId = clientId;
 		this.userAgent = userAgent || 'Hydra-Cpp/1.132.0';
+		this.ready = false;
+		this.steamUser.on("loggedOn", () => {
+			refreshAppToken()
+		})
+	}
+
+	refreshAppToken()
+	{
+		this.ready = false;
+		this.steamUser.createEncryptedAppTicket(1818750, async function(err, appTicket) {
+			if (err)
+			{
+				console.error(err);
+				return;
+			}
+
+			let data = await refreshAccessToken(appTicket.toString("hex"))
+		
+			this.accessToken = data.token
+			this.ready = true;
+		})
 	}
 
 	handleData(data, resolve, reject) {
+		if (!this.ready)
+		{
+			return reject(new Error('Client is not ready.'));
+		}
+
 		data.then(res => {
+			if (res.status == 401) {
+				return reject({ code: 401, msg: 'Invalid access token.' });
+			}
 			return res.text();
 		}).then(json => {
 			if (JSON.parse(json).msg) {
@@ -144,6 +175,22 @@ class Client {
 					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
+			})
+			this.handleData(data, resolve, reject);
+		});
+	}
+
+	refreshAccessToken(steamToken) {
+		return new Promise((resolve, reject) => {
+			const data = fetch(base + `/access`, {
+				headers: {
+					'x-hydra-api-key': this.apiKey,
+					'x-hydra-client-id': this.clientId,
+					'x-hydra-user-agent': this.userAgent,
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify({ auth: { steam: steamToken, fail_on_missing: true } })
 			})
 			this.handleData(data, resolve, reject);
 		});
