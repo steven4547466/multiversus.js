@@ -3,3 +3,7 @@ test/auth.js
 test.js
 
 test.json
+
+!package.json
+!package-lock.json
+*.json
