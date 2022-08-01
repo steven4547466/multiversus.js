@@ -6,7 +6,7 @@ const base = 'https://dokken-api.wbagora.com'
 class Client {
 	constructor(username, password, apiKey, clientId, userAgent) {
 		this.steamUser = new SteamUser();
-		this.steamUser.logOn({accountName: username, password: password});
+		this.steamUser.logOn({ accountName: username, password: password });
 		this.apiKey = apiKey;
 		this.clientId = clientId;
 		this.userAgent = userAgent || 'Hydra-Cpp/1.132.0';
@@ -16,18 +16,16 @@ class Client {
 		})
 	}
 
-	refreshAppToken()
-	{
+	refreshAppToken() {
 		this.ready = false;
 		this.steamUser.createEncryptedAppTicket(1818750, async (err, appTicket) => {
-			if (err)
-			{
+			if (err) {
 				console.error(err);
 				return;
 			}
 
 			let data = await this.refreshAccessToken(appTicket.toString("hex"))
-		
+
 			this.accessToken = data.token
 			this.ready = true;
 		})
@@ -47,17 +45,16 @@ class Client {
 		})
 	}
 
-	searchByUsername(username, limit = 25) {
+	searchByUsername(username, limit = 25, cursor = null, platform = null) {
 		return new Promise((resolve, reject) => {
-			if (!this.ready)
-			{
+			if (!this.ready) {
 				return reject(new Error('Client is not ready.'));
 			}
 
 			if (!username) {
 				throw new Error('A query must be provided.')
 			}
-			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}`, {
+			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
@@ -65,14 +62,70 @@ class Client {
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
-			this.handleData(data, resolve, reject);
+			data.then(res => {
+				if (res.status == 401) {
+					return reject({ code: 401, msg: 'Invalid access token.' });
+				}
+				return res.text();
+			}).then(json => {
+				if (JSON.parse(json).msg) {
+					return reject(new Error(JSON.parse(json).msg));
+				}
+				let parsed = JSON.parse(json)
+
+				if (platform) {
+					parsed.results = parsed.results.filter(p => p.result.account.identity.alternate[platform] ? p.result.account.identity.alternate[platform][0].username.toLowerCase().includes(username.toLowerCase()) : false)
+				}
+
+				return resolve(parsed);
+			})
+		});
+	}
+
+	searchExactUsername(username, limit = 25, cursor = null, platform = null) {
+		return new Promise((resolve, reject) => {
+			if (!this.ready) {
+				return reject(new Error('Client is not ready.'));
+			}
+
+			if (!username) {
+				throw new Error('A query must be provided.')
+			}
+			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
+				headers: {
+					'x-hydra-access-token': this.accessToken,
+					'x-hydra-api-key': this.apiKey,
+					'x-hydra-client-id': this.clientId,
+					'x-hydra-user-agent': this.userAgent
+				}
+			})
+			data.then(res => {
+				if (res.status == 401) {
+					return reject({ code: 401, msg: 'Invalid access token.' });
+				}
+				return res.text();
+			}).then(async json => {
+				if (JSON.parse(json).msg) {
+					return reject(new Error(JSON.parse(json).msg));
+				}
+				let parsed = JSON.parse(json)
+
+				if (platform) {
+					parsed.results = parsed.results.filter(p => p.result.account.identity.alternate[platform] && p.result.account.identity.alternate[platform][0].username ? p.result.account.identity.alternate[platform][0].username.toLowerCase() == username.toLowerCase() : false)
+				}
+
+				if (parsed.results.length == 0) {
+					return resolve(await this.searchExactUsername(username, 100, parsed.cursor, platform))
+				}
+
+				return resolve(parsed.results[0].result);
+			})
 		});
 	}
 
 	getMatch(id) {
 		return new Promise((resolve, reject) => {
-			if (!this.ready)
-			{
+			if (!this.ready) {
 				return reject(new Error('Client is not ready.'));
 			}
 
@@ -93,8 +146,7 @@ class Client {
 
 	getProfile(id) {
 		return new Promise((resolve, reject) => {
-			if (!this.ready)
-			{
+			if (!this.ready) {
 				return reject(new Error('Client is not ready.'));
 			}
 
@@ -115,8 +167,7 @@ class Client {
 
 	getProfileLeaderboard(id, type) {
 		return new Promise((resolve, reject) => {
-			if (!this.ready)
-			{
+			if (!this.ready) {
 				return reject(new Error('Client is not ready.'));
 			}
 
@@ -140,8 +191,7 @@ class Client {
 
 	getProfileLeaderboardForCharacter(id, type, character) {
 		return new Promise((resolve, reject) => {
-			if (!this.ready)
-			{
+			if (!this.ready) {
 				return reject(new Error('Client is not ready.'));
 			}
 
@@ -168,8 +218,7 @@ class Client {
 
 	getLeaderboard(type) {
 		return new Promise((resolve, reject) => {
-			if (!this.ready)
-			{
+			if (!this.ready) {
 				return reject(new Error('Client is not ready.'));
 			}
 
@@ -190,11 +239,10 @@ class Client {
 
 	getMatches(id, page = 1) {
 		return new Promise((resolve, reject) => {
-			if (!this.ready)
-			{
+			if (!this.ready) {
 				return reject(new Error('Client is not ready.'));
 			}
-			
+
 			if (!id) {
 				return reject(new Error('A user ID must be provided.'));
 			}
