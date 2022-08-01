@@ -76,7 +76,7 @@ class Client {
 				let parsed = JSON.parse(json)
 
 				if (platform) {
-					parsed.results = parsed.results.filter(p => p.result.account.identity.alternate[platform] ? p.result.account.identity.alternate[platform][0].username.toLowerCase().includes(username.toLowerCase()) : false)
+					parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] ? p.result.account.identity.alternate[platform][0].username.toLowerCase().includes(username.toLowerCase()) : false)
 				}
 
 				return resolve(parsed);
@@ -114,7 +114,7 @@ class Client {
 				let parsed = JSON.parse(json)
 
 				if (platform) {
-					parsed.results = parsed.results.filter(p => p.result.account.identity.alternate[platform] && p.result.account.identity.alternate[platform][0].username ? p.result.account.identity.alternate[platform][0].username.toLowerCase() == username.toLowerCase() : false)
+					parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] && p.result.account.identity.alternate[platform][0].username ? p.result.account.identity.alternate[platform][0].username.toLowerCase() == username.toLowerCase() : false)
 				}
 
 				if (parsed.results.length == 0) {
