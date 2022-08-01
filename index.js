@@ -12,21 +12,21 @@ class Client {
 		this.userAgent = userAgent || 'Hydra-Cpp/1.132.0';
 		this.ready = false;
 		this.steamUser.on("loggedOn", () => {
-			refreshAppToken()
+			this.refreshAppToken()
 		})
 	}
 
 	refreshAppToken()
 	{
 		this.ready = false;
-		this.steamUser.createEncryptedAppTicket(1818750, async function(err, appTicket) {
+		this.steamUser.createEncryptedAppTicket(1818750, async (err, appTicket) => {
 			if (err)
 			{
 				console.error(err);
 				return;
 			}
 
-			let data = await refreshAccessToken(appTicket.toString("hex"))
+			let data = await this.refreshAccessToken(appTicket.toString("hex"))
 		
 			this.accessToken = data.token
 			this.ready = true;
@@ -34,11 +34,6 @@ class Client {
 	}
 
 	handleData(data, resolve, reject) {
-		if (!this.ready)
-		{
-			return reject(new Error('Client is not ready.'));
-		}
-
 		data.then(res => {
 			if (res.status == 401) {
 				return reject({ code: 401, msg: 'Invalid access token.' });
@@ -54,6 +49,11 @@ class Client {
 
 	searchByUsername(username, limit = 25) {
 		return new Promise((resolve, reject) => {
+			if (!this.ready)
+			{
+				return reject(new Error('Client is not ready.'));
+			}
+
 			if (!username) {
 				throw new Error('A query must be provided.')
 			}
@@ -71,6 +71,11 @@ class Client {
 
 	getMatch(id) {
 		return new Promise((resolve, reject) => {
+			if (!this.ready)
+			{
+				return reject(new Error('Client is not ready.'));
+			}
+
 			if (!id) {
 				throw new Error('A match ID must be provided.')
 			}
@@ -88,6 +93,11 @@ class Client {
 
 	getProfile(id) {
 		return new Promise((resolve, reject) => {
+			if (!this.ready)
+			{
+				return reject(new Error('Client is not ready.'));
+			}
+
 			if (!id) {
 				throw new Error('A user ID must be provided.')
 			}
@@ -105,6 +115,11 @@ class Client {
 
 	getProfileLeaderboard(id, type) {
 		return new Promise((resolve, reject) => {
+			if (!this.ready)
+			{
+				return reject(new Error('Client is not ready.'));
+			}
+
 			if (type !== '2v2' && type !== '1v1') {
 				return reject(new Error('Leaderboard type must be 1v1 or 2v2.'));
 			}
@@ -125,6 +140,11 @@ class Client {
 
 	getProfileLeaderboardForCharacter(id, type, character) {
 		return new Promise((resolve, reject) => {
+			if (!this.ready)
+			{
+				return reject(new Error('Client is not ready.'));
+			}
+
 			if (type !== '2v2' && type !== '1v1') {
 				return reject(new Error('Leaderboard type must be 1v1 or 2v2.'));
 			}
@@ -148,6 +168,11 @@ class Client {
 
 	getLeaderboard(type) {
 		return new Promise((resolve, reject) => {
+			if (!this.ready)
+			{
+				return reject(new Error('Client is not ready.'));
+			}
+
 			if (type !== '2v2' && type !== '1v1') {
 				return reject(new Error('Leaderboard type must be 1v1 or 2v2.'));
 			}
@@ -165,6 +190,11 @@ class Client {
 
 	getMatches(id, page = 1) {
 		return new Promise((resolve, reject) => {
+			if (!this.ready)
+			{
+				return reject(new Error('Client is not ready.'));
+			}
+			
 			if (!id) {
 				return reject(new Error('A user ID must be provided.'));
 			}
