@@ -118,7 +118,14 @@ class Client {
 				}
 
 				if (parsed.results.length == 0) {
-					return resolve(await this.searchExactUsername(username, 100, parsed.cursor, platform))
+					if (parsed.cursor && parsed.cursor.trim().length > 0)
+					{
+						return resolve(await this.searchExactUsername(username, 100, parsed.cursor, platform))
+					}
+					else
+					{
+						return resolve(null)
+					}
 				}
 
 				return resolve(parsed.results[0].result);
