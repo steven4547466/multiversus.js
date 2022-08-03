@@ -118,12 +118,10 @@ class Client {
 				}
 
 				if (parsed.results.length == 0) {
-					if (parsed.cursor && parsed.cursor.trim().length > 0)
-					{
+					if (parsed.cursor && parsed.cursor.trim().length > 0) {
 						return resolve(await this.searchExactUsername(username, 100, parsed.cursor, platform))
 					}
-					else
-					{
+					else {
 						return resolve(null)
 					}
 				}
@@ -290,6 +288,27 @@ class Client {
 			})
 			this.handleData(data, resolve, reject);
 		});
+	}
+	batchRequest(requests) {
+		return new Promise((resolve, reject) => {
+			const data = fetch(base + `/batch`, {
+				headers: {
+					'x-hydra-access-token': this.accessToken,
+					'x-hydra-api-key': this.apiKey,
+					'x-hydra-client-id': this.clientId,
+					'x-hydra-user-agent': this.userAgent,
+					'Content-Type': 'application/json'
+				},
+				method: 'PUT',
+				body: JSON.stringify({
+					options: {
+						allow_failures: false,
+					},
+					requests
+				})
+			})
+			this.handleData(data, resolve, reject);
+		})
 	}
 
 	refreshAccessToken(steamToken) {
