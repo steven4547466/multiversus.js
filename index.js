@@ -278,7 +278,7 @@ class Client {
 			if (!id) {
 				return reject(new Error('A user ID must be provided.'));
 			}
-			const data = fetch(base + `/matches/${id}?page=${page}`, {
+			const data = fetch(base + `/matches/all/${id}?page=${page}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
