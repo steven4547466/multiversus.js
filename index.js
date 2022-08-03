@@ -278,7 +278,7 @@ class Client {
 			if (!id) {
 				return reject(new Error('A user ID must be provided.'));
 			}
-			const data = fetch(base + `/matches/all/${id}?page=${page}`, {
+			const data = fetch(base + `/matches/${id}?page=${page}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
@@ -433,6 +433,12 @@ class CharacterData {
 		"id": "character_c16",
 		"displayName": "LeBron James",
 		"aliases": []
+	}
+
+	static RickSanchez = {
+		"id": "character_c020",
+		"displayName": "Rick Sanchez",
+		"aliases": ["Rick"]
 	}
 }
 
