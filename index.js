@@ -58,7 +58,7 @@ class Client {
 			}
 
 			if (!username) {
-				throw new Error('A query must be provided.')
+				return reject(new Error('A query must be provided.'))
 			}
 			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
 				headers: {
@@ -96,7 +96,7 @@ class Client {
 			}
 
 			if (!username) {
-				throw new Error('A query must be provided.')
+				return reject(new Error('A query must be provided.'))
 			}
 			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
 				headers: {
@@ -143,7 +143,7 @@ class Client {
 			}
 
 			if (!id) {
-				throw new Error('A match ID must be provided.')
+				return reject(new Error('A match ID must be provided.'))
 			}
 			const data = fetch(base + `/matches/${id}`, {
 				headers: {
@@ -164,7 +164,7 @@ class Client {
 			}
 
 			if (!id) {
-				throw new Error('A user ID must be provided.')
+				return reject(Error('A user ID must be provided.'))
 			}
 			const data = fetch(base + `/profiles/${id}`, {
 				headers: {
