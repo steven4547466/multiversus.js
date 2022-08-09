@@ -44,7 +44,7 @@ class Client {
 					return reject(new Error(JSON.parse(json).msg));
 				}
 			} catch (e) {
-				return reject(new Error("Invalid JSON.\n"+json));
+				return reject(new Error("Invalid JSON.\n" + json));
 			}
 
 			return resolve(JSON.parse(json));
@@ -467,7 +467,7 @@ class CharacterData {
 class PerkData {
 	static StarLabsAerodynamics = {
 		displayName: "STAR Labs Aerodynamics",
-		ids: ["perk_general_jumpspeed_medium", "perk_general_jumpspeed_large"],
+		slugs: ["perk_general_jumpspeed_medium", "perk_general_jumpspeed_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -484,13 +484,13 @@ class PerkData {
 
 	static BoundlessEnergy = {
 		displayName: "Boundless Energy",
-		ids: ["perk_general_evaderechargetime_small", "perk_general_evaderechargetime_medium", "perk_general_evaderechargetime_large"],
+		slugs: ["perk_general_evaderechargetime_small", "perk_general_evaderechargetime_medium", "perk_general_evaderechargetime_large"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_evaderechargetime_small",
-				description: "Your team receives 10% faster dodge invulnerability recharge.undefined"
+				description: "Your team receives 10% faster dodge invulnerability recharge."
 			},
 			{
 				slug: "perk_general_evaderechargetime_medium",
@@ -505,13 +505,13 @@ class PerkData {
 
 	static TasmanianTrigonometry = {
 		displayName: "Tasmanian Trigonometry",
-		ids: ["perk_general_directionalinfluence_small", "perk_general_directionalinfluence_medium", "perk_general_directionalinfluence_large"],
+		slugs: ["perk_general_directionalinfluence_small", "perk_general_directionalinfluence_medium", "perk_general_directionalinfluence_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_directionalinfluence_small",
-				description: "Your team receives 15% increased base knockback influence.undefined"
+				description: "Your team receives 15% increased base knockback influence."
 			},
 			{
 				slug: "perk_general_directionalinfluence_medium",
@@ -526,7 +526,7 @@ class PerkData {
 
 	static IGottaGetInThere = {
 		displayName: "I Gotta Get In There!",
-		ids: ["perk_C015_teamfightcloud"],
+		slugs: ["perk_C015_teamfightcloud"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -539,7 +539,7 @@ class PerkData {
 
 	static IronStomach = {
 		displayName: "Iron Stomach",
-		ids: ["perk_C015_ironstomach"],
+		slugs: ["perk_C015_ironstomach"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -552,7 +552,7 @@ class PerkData {
 
 	static KeepPossession = {
 		displayName: "Keep Possession",
-		ids: ["perk_c016_keeppossession"],
+		slugs: ["perk_c016_keeppossession"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -565,7 +565,7 @@ class PerkData {
 
 	static HotHands = {
 		displayName: "Hot Hands",
-		ids: ["perk_c016_hothands"],
+		slugs: ["perk_c016_hothands"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -578,7 +578,7 @@ class PerkData {
 
 	static ForThree = {
 		displayName: "For Three!",
-		ids: ["perk_c016_distanceshot"],
+		slugs: ["perk_c016_distanceshot"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -591,7 +591,7 @@ class PerkData {
 
 	static Afterburners = {
 		displayName: "Afterburners",
-		ids: ["perk_c017_scorchedearth"],
+		slugs: ["perk_c017_scorchedearth"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -604,7 +604,7 @@ class PerkData {
 
 	static StaticDischarge = {
 		displayName: "Static Discharge",
-		ids: ["perk_c017_stackthorns"],
+		slugs: ["perk_c017_stackthorns"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -617,7 +617,7 @@ class PerkData {
 
 	static WrongSideOfTheBed = {
 		displayName: "Wrong Side of the Bed",
-		ids: ["perk_c017_fastweaponmode"],
+		slugs: ["perk_c017_fastweaponmode"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -630,7 +630,7 @@ class PerkData {
 
 	static GoingOutOfBusiness = {
 		displayName: "Going Out Of Business",
-		ids: ["perk_finn_goingoutofbusiness"],
+		slugs: ["perk_finn_goingoutofbusiness"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -643,7 +643,7 @@ class PerkData {
 
 	static OnTheHouse = {
 		displayName: "On The House!",
-		ids: ["perk_finn_gemoncharge"],
+		slugs: ["perk_finn_gemoncharge"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -656,20 +656,20 @@ class PerkData {
 
 	static InASingleBound = {
 		displayName: "...in a Single Bound!",
-		ids: ["perk_general_jumpspeed_small"],
+		slugs: ["perk_general_jumpspeed_small"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_jumpspeed_small",
-				description: "Your team receives 10% increased jump speed.undefined"
+				description: "Your team receives 10% increased jump speed."
 			}
 		]
 	}
 
 	static Marker = {
 		displayName: "Marker",
-		ids: ["perk_garnet_marker"],
+		slugs: ["perk_garnet_marker"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -682,7 +682,7 @@ class PerkData {
 
 	static ElectricGroove = {
 		displayName: "Electric Groove",
-		ids: ["perk_garnet_electricgroove"],
+		slugs: ["perk_garnet_electricgroove"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -695,7 +695,7 @@ class PerkData {
 
 	static Studied = {
 		displayName: "Studied",
-		ids: ["perk_velma_studied"],
+		slugs: ["perk_velma_studied"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -708,7 +708,7 @@ class PerkData {
 
 	static KnowledgeIsPower = {
 		displayName: "Knowledge Is Power",
-		ids: ["perk_velma_knowledgeispower"],
+		slugs: ["perk_velma_knowledgeispower"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -721,26 +721,26 @@ class PerkData {
 
 	static PaintedTarget = {
 		displayName: "Painted Target",
-		ids: ["perk_general_paintedtarget"],
+		slugs: ["perk_general_paintedtarget"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_paintedtarget",
-				description: "Your team deals 5% increased damageundefined when hitting enemies that are in hitstun."
+				description: "Your team deals 5% increased damage when hitting enemies that are in hitstun."
 			}
 		]
 	}
 
 	static SpeedForceAssist = {
 		displayName: "Speed Force Assist",
-		ids: ["perk_general_movespeed_small", "perk_general_movespeed_medium", "perk_general_movespeed_large"],
+		slugs: ["perk_general_movespeed_small", "perk_general_movespeed_medium", "perk_general_movespeed_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_movespeed_small",
-				description: "Your team receives 4% increased base movement speed.undefined"
+				description: "Your team receives 4% increased base movement speed."
 			},
 			{
 				slug: "perk_general_movespeed_medium",
@@ -755,7 +755,7 @@ class PerkData {
 
 	static CominThroughDoc = {
 		displayName: "Comin' Through Doc",
-		ids: ["perk_bugsbunny_shockwave"],
+		slugs: ["perk_bugsbunny_shockwave"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -768,7 +768,7 @@ class PerkData {
 
 	static LingeringLove = {
 		displayName: "Lingering Love",
-		ids: ["perk_bugsbunny_lingeringlove"],
+		slugs: ["perk_bugsbunny_lingeringlove"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -781,13 +781,13 @@ class PerkData {
 
 	static Deadshot = {
 		displayName: "Deadshot",
-		ids: ["perk_general_projectiledamageboost_small", "perk_general_projectiledamageboost_medium", "perk_general_projectiledamageboost_large"],
+		slugs: ["perk_general_projectiledamageboost_small", "perk_general_projectiledamageboost_medium", "perk_general_projectiledamageboost_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_projectiledamageboost_small",
-				description: "Your team deals 5% increased damageundefined with projectiles."
+				description: "Your team deals 5% increased damage with projectiles."
 			},
 			{
 				slug: "perk_general_projectiledamageboost_medium",
@@ -802,13 +802,13 @@ class PerkData {
 
 	static SlipperyCustomer = {
 		displayName: "Slippery Customer",
-		ids: ["perk_general_evadebaseinvulnerability_small", "perk_general_evadespeed_medium", "perk_general_evadebaseinvulnerability_medium", "perk_general_evadespeed_large", "perk_general_evadebaseinvulnerability_large"],
+		slugs: ["perk_general_evadebaseinvulnerability_small", "perk_general_evadespeed_medium", "perk_general_evadebaseinvulnerability_medium", "perk_general_evadespeed_large", "perk_general_evadebaseinvulnerability_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_evadebaseinvulnerability_small",
-				description: "Your team receives a 10% longer dodge invulnerability window.undefined"
+				description: "Your team receives a 10% longer dodge invulnerability window."
 			},
 			{
 				slug: "perk_general_evadespeed_medium",
@@ -831,7 +831,7 @@ class PerkData {
 
 	static ItsCalledTheBuddySystemMorty = {
 		displayName: "It's Called The Buddy System, Morty",
-		ids: ["perk_c020_signature_1"],
+		slugs: ["perk_c020_signature_1"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -844,33 +844,33 @@ class PerkData {
 
 	static SturdyDodger = {
 		displayName: "Sturdy Dodger",
-		ids: ["perk_general_dodgearmor"],
+		slugs: ["perk_general_dodgearmor"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_dodgearmor",
-				description: "Your team receives armor for 1 secondundefined after successfully neutral dodging a projectile."
+				description: "Your team receives armor for 1 second after successfully neutral dodging a projectile."
 			}
 		]
 	}
 
 	static HitMeIfYoureAble = {
 		displayName: "Hit Me If You're Able",
-		ids: ["perk_general_evadespeed_small"],
+		slugs: ["perk_general_evadespeed_small"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_evadespeed_small",
-				description: "Your team receives 5% increased dodge speed.undefined"
+				description: "Your team receives 5% increased dodge speed."
 			}
 		]
 	}
 
 	static SmoothMoves = {
 		displayName: "Smooth Moves",
-		ids: ["perk_harley_smoothmoves"],
+		slugs: ["perk_harley_smoothmoves"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -883,7 +883,7 @@ class PerkData {
 
 	static ConfettiExplosion = {
 		displayName: "Confetti Explosion",
-		ids: ["perk_harley_confettiexplosion"],
+		slugs: ["perk_harley_confettiexplosion"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -896,7 +896,7 @@ class PerkData {
 
 	static GloveControl = {
 		displayName: "Glove Control",
-		ids: ["perk_harley_bullseye"],
+		slugs: ["perk_harley_bullseye"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -909,7 +909,7 @@ class PerkData {
 
 	static BounceBubble = {
 		displayName: "Bounce Bubble",
-		ids: ["perk_steven_shieldbounce"],
+		slugs: ["perk_steven_shieldbounce"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -922,7 +922,7 @@ class PerkData {
 
 	static GreenThumb = {
 		displayName: "Green Thumb",
-		ids: ["perk_steven_greenthumb"],
+		slugs: ["perk_steven_greenthumb"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -935,46 +935,46 @@ class PerkData {
 
 	static IceToBeatYou = {
 		displayName: "Ice to Beat You!",
-		ids: ["perk_general_iceprojectile"],
+		slugs: ["perk_general_iceprojectile"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_iceprojectile",
-				description: "Your team's projectiles deal 1 stack of iceundefined if they knock enemies back."
+				description: "Your team's projectiles deal 1 stack of ice if they knock enemies back."
 			}
 		]
 	}
 
 	static CollateralDamage = {
 		displayName: "Collateral Damage",
-		ids: ["perk_general_collateraldamage"],
+		slugs: ["perk_general_collateraldamage"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_collateraldamage",
-				description: "Your team deals 1 additional damageundefined when knocked back enemies collide with a wall or floor."
+				description: "Your team deals 1 additional damage when knocked back enemies collide with a wall or floor."
 			}
 		]
 	}
 
 	static AbsorbNGo = {
 		displayName: "Absorb 'n' Go",
-		ids: ["perk_general_abilityrefundontakeprojectilekb"],
+		slugs: ["perk_general_abilityrefundontakeprojectilekb"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_abilityrefundontakeprojectilekb",
-				description: "Your team receives a 7% ability cooldown refundundefined after being knocked back by a projectile."
+				description: "Your team receives a 7% ability cooldown refund after being knocked back by a projectile."
 			}
 		]
 	}
 
 	static DynamiteSplit = {
 		displayName: "Dynamite Split",
-		ids: ["perk_tomandjerry_dynamitesplit"],
+		slugs: ["perk_tomandjerry_dynamitesplit"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -987,7 +987,7 @@ class PerkData {
 
 	static FlyFisher = {
 		displayName: "Fly Fisher",
-		ids: ["perk_tomandjerry_bait"],
+		slugs: ["perk_tomandjerry_bait"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1000,33 +1000,33 @@ class PerkData {
 
 	static SchoolMeOnce = {
 		displayName: "School Me Once...",
-		ids: ["perk_general_projectileblock"],
+		slugs: ["perk_general_projectileblock"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_projectileblock",
-				description: "Your team receives a projectile block buff for 2 secondsundefined after being knocked back by a projectile."
+				description: "Your team receives a projectile block buff for 2 seconds after being knocked back by a projectile."
 			}
 		]
 	}
 
 	static ShirtCannonSniper = {
 		displayName: "Shirt Cannon Sniper",
-		ids: ["perk_general_sniper"],
+		slugs: ["perk_general_sniper"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_sniper",
-				description: "Your team's projectiles deal 7% increased damageundefined to far away victims."
+				description: "Your team's projectiles deal 7% increased damage to far away victims."
 			}
 		]
 	}
 
 	static ThatsFlammableDoc = {
 		displayName: "That's Flammable, Doc!",
-		ids: ["perk_general_fireprojectile"],
+		slugs: ["perk_general_fireprojectile"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -1039,33 +1039,33 @@ class PerkData {
 
 	static IDodgeYouDodgeWeDodge = {
 		displayName: "I Dodge You Dodge We Dodge",
-		ids: ["perk_general_abilityrefundondodge"],
+		slugs: ["perk_general_abilityrefundondodge"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_abilityrefundondodge",
-				description: "Your team receives a 10% ability cooldown refundundefined after dodging an attack."
+				description: "Your team receives a 10% ability cooldown refund after dodging an attack."
 			}
 		]
 	}
 
 	static ArmorCrush = {
 		displayName: "Armor Crush",
-		ids: ["perk_general_chargearmorbreak"],
+		slugs: ["perk_general_chargearmorbreak"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_chargearmorbreak",
-				description: "Your team's fully charged attacks break armor.undefined"
+				description: "Your team's fully charged attacks break armor."
 			}
 		]
 	}
 
 	static Trophy = {
 		displayName: "Trophy",
-		ids: ["perk_arya_copycat"],
+		slugs: ["perk_arya_copycat"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1078,7 +1078,7 @@ class PerkData {
 
 	static Betrayal = {
 		displayName: "Betrayal",
-		ids: ["perk_arya_enrageallies"],
+		slugs: ["perk_arya_enrageallies"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1091,13 +1091,13 @@ class PerkData {
 
 	static FancyFootwork = {
 		displayName: "Fancy Footwork",
-		ids: ["perk_general_evadedistance_small", "perk_general_evadedistance_medium", "perk_general_evadedistance_large"],
+		slugs: ["perk_general_evadedistance_small", "perk_general_evadedistance_medium", "perk_general_evadedistance_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_evadedistance_small",
-				description: "Your team receives 5% increased dodge distance.undefined"
+				description: "Your team receives 5% increased dodge distance."
 			},
 			{
 				slug: "perk_general_evadedistance_medium",
@@ -1112,13 +1112,13 @@ class PerkData {
 
 	static MakeItRainDog = {
 		displayName: "Make It Rain, Dog!",
-		ids: ["perk_general_projectilespeed_small", "perk_general_projectilespeed_medium", "perk_general_projectilespeed_large"],
+		slugs: ["perk_general_projectilespeed_small", "perk_general_projectilespeed_medium", "perk_general_projectilespeed_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_projectilespeed_small",
-				description: "Your team receives 20% increased projectile speed.undefined"
+				description: "Your team receives 20% increased projectile speed."
 			},
 			{
 				slug: "perk_general_projectilespeed_medium",
@@ -1133,20 +1133,20 @@ class PerkData {
 
 	static StaticElectricity = {
 		displayName: "Static Electricity",
-		ids: ["perk_general_electricprojectile"],
+		slugs: ["perk_general_electricprojectile"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_electricprojectile",
-				description: "After allies move on the ground for 4 seconds, their next projectile applies shocked to enemies.undefined Leaving the ground "
+				description: "After allies move on the ground for 4 seconds, their next projectile applies shocked to enemies. Leaving the ground "
 			}
 		]
 	}
 
 	static CrystalPal = {
 		displayName: "Crystal Pal",
-		ids: ["perk_creature_airsupport"],
+		slugs: ["perk_creature_airsupport"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1159,7 +1159,7 @@ class PerkData {
 
 	static FireFluff = {
 		displayName: "Fire Fluff",
-		ids: ["perk_creature_firestorm"],
+		slugs: ["perk_creature_firestorm"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1172,13 +1172,13 @@ class PerkData {
 
 	static LegDayChamp = {
 		displayName: "Leg Day Champ",
-		ids: ["perk_general_jumpheight_small", "perk_general_jumpheight_medium", "perk_general_jumpheight_large"],
+		slugs: ["perk_general_jumpheight_small", "perk_general_jumpheight_medium", "perk_general_jumpheight_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_jumpheight_small",
-				description: "Your team receives 10% increased jump height.undefined"
+				description: "Your team receives 10% increased jump height."
 			},
 			{
 				slug: "perk_general_jumpheight_medium",
@@ -1193,13 +1193,13 @@ class PerkData {
 
 	static ToonElasticity = {
 		displayName: "'Toon Elasticity",
-		ids: ["perk_general_wallbouncereduction_small", "perk_general_wallbouncereduction_medium", "perk_general_wallbouncereduction_large"],
+		slugs: ["perk_general_wallbouncereduction_small", "perk_general_wallbouncereduction_medium", "perk_general_wallbouncereduction_large"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_wallbouncereduction_small",
-				description: "Your team receives a 20% reduction to ground and wall bounce velocity.undefined"
+				description: "Your team receives a 20% reduction to ground and wall bounce velocity."
 			},
 			{
 				slug: "perk_general_wallbouncereduction_medium",
@@ -1214,7 +1214,7 @@ class PerkData {
 
 	static Sticky = {
 		displayName: "Sticky",
-		ids: ["perk_jake_quickstretch"],
+		slugs: ["perk_jake_quickstretch"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1227,7 +1227,7 @@ class PerkData {
 
 	static StayLimberDude = {
 		displayName: "Stay Limber, Dude",
-		ids: ["perk_jake_bouncyhouse"],
+		slugs: ["perk_jake_bouncyhouse"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1240,26 +1240,26 @@ class PerkData {
 
 	static SecondWindBeneathYourWings = {
 		displayName: "Second Wind Beneath Your Wings",
-		ids: ["perk_general_refreshingknockout"],
+		slugs: ["perk_general_refreshingknockout"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_refreshingknockout",
-				description: "Your team refreshes air special attacksundefined after ringing out an enemy."
+				description: "Your team refreshes air special attacks after ringing out an enemy."
 			}
 		]
 	}
 
 	static WildcatBrawler = {
 		displayName: "Wildcat Brawler",
-		ids: ["perk_general_groundmeleedamageboost_small", "perk_general_groundmeleedamageboost_medium", "perk_general_groundmeleedamageboost_large"],
+		slugs: ["perk_general_groundmeleedamageboost_small", "perk_general_groundmeleedamageboost_medium", "perk_general_groundmeleedamageboost_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_groundmeleedamageboost_small",
-				description: "Your team deals 5% increased damageundefined with melee attacks on the ground."
+				description: "Your team deals 5% increased damage with melee attacks on the ground."
 			},
 			{
 				slug: "perk_general_groundmeleedamageboost_medium",
@@ -1274,20 +1274,20 @@ class PerkData {
 
 	static ClearTheAir = {
 		displayName: "Clear the Air",
-		ids: ["perk_general_dodgereflect"],
+		slugs: ["perk_general_dodgereflect"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_dodgereflect",
-				description: "Your team destroys enemy projectilesundefined after successfully neutral dodging the projectile."
+				description: "Your team destroys enemy projectiles after successfully neutral dodging the projectile."
 			}
 		]
 	}
 
 	static SniperPunch = {
 		displayName: "Sniper Punch",
-		ids: ["perk_superman_sniperpunch"],
+		slugs: ["perk_superman_sniperpunch"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1300,7 +1300,7 @@ class PerkData {
 
 	static BreakTheIce = {
 		displayName: "Break The Ice",
-		ids: ["perk_superman_icebreaker"],
+		slugs: ["perk_superman_icebreaker"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1313,7 +1313,7 @@ class PerkData {
 
 	static FlamingReentry = {
 		displayName: "Flaming Re-Entry",
-		ids: ["perk_superman_fireslam"],
+		slugs: ["perk_superman_fireslam"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1326,39 +1326,39 @@ class PerkData {
 
 	static PercussivePunchPower = {
 		displayName: "Percussive Punch Power",
-		ids: ["perk_general_horizontalknockbackboost"],
+		slugs: ["perk_general_horizontalknockbackboost"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_horizontalknockbackboost",
-				description: "Your team deals 5% increased damageundefined with attacks that knock back enemies horizontally."
+				description: "Your team deals 5% increased damage with attacks that knock back enemies horizontally."
 			}
 		]
 	}
 
 	static TripleJump = {
 		displayName: "Triple Jump",
-		ids: ["perk_general_jumpcount"],
+		slugs: ["perk_general_jumpcount"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_jumpcount",
-				description: "Your team receives an extra jump after hitting an enemyundefined while in air."
+				description: "Your team receives an extra jump after hitting an enemy while in air."
 			}
 		]
 	}
 
 	static GravityManipulation = {
 		displayName: "Gravity Manipulation",
-		ids: ["perk_general_fastfall_small", "perk_general_fastfall_medium", "perk_general_fastfall_large"],
+		slugs: ["perk_general_fastfall_small", "perk_general_fastfall_medium", "perk_general_fastfall_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_fastfall_small",
-				description: "Your team receives 10% increased fast fall speed.undefined"
+				description: "Your team receives 10% increased fast fall speed."
 			},
 			{
 				slug: "perk_general_fastfall_medium",
@@ -1373,7 +1373,7 @@ class PerkData {
 
 	static CookieCatPower = {
 		displayName: "Cookie Cat Power!",
-		ids: ["perk_general_aircontrol_medium", "perk_general_aircontrol_large"],
+		slugs: ["perk_general_aircontrol_medium", "perk_general_aircontrol_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -1390,46 +1390,46 @@ class PerkData {
 
 	static AerialAcrobat = {
 		displayName: "Aerial Acrobat",
-		ids: ["perk_general_aircontrol_small"],
+		slugs: ["perk_general_aircontrol_small"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_aircontrol_small",
-				description: "Your team receives 10% increased air acceleration.undefined"
+				description: "Your team receives 10% increased air acceleration."
 			}
 		]
 	}
 
 	static UpUpAndAslay = {
 		displayName: "Up, Up, and A-Slay",
-		ids: ["perk_general_verticalknockbackboost"],
+		slugs: ["perk_general_verticalknockbackboost"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_verticalknockbackboost",
-				description: "Your team deals 5% increased damageundefined with attacks that knock back enemies upward."
+				description: "Your team deals 5% increased damage with attacks that knock back enemies upward."
 			}
 		]
 	}
 
 	static SlipperyWhenFeint = {
 		displayName: "Slippery When Feint",
-		ids: ["perk_general_evadedistanceonhitcancel"],
+		slugs: ["perk_general_evadedistanceonhitcancel"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_evadedistanceonhitcancel",
-				description: "Your team receives 10% increased dodge distanceundefined when dodging out of an attack hit cancel."
+				description: "Your team receives 10% increased dodge distance when dodging out of an attack hit cancel."
 			}
 		]
 	}
 
 	static PrecisionGrapple = {
 		displayName: "Precision Grapple",
-		ids: ["perk_batman_heavygrapple"],
+		slugs: ["perk_batman_heavygrapple"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1442,7 +1442,7 @@ class PerkData {
 
 	static Bouncerang = {
 		displayName: "Bouncerang",
-		ids: ["perk_batman_bouncerang"],
+		slugs: ["perk_batman_bouncerang"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1455,33 +1455,33 @@ class PerkData {
 
 	static ThatsNotAllFolks = {
 		displayName: "That's (Not) All, Folks!",
-		ids: ["perk_general_knockoutbounce"],
+		slugs: ["perk_general_knockoutbounce"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_knockoutbounce",
-				description: "Ringing out enemies while near the blast zone pushes the attacker back towards the center of the map.undefined"
+				description: "Ringing out enemies while near the blast zone pushes the attacker back towards the center of the map."
 			}
 		]
 	}
 
 	static HitEmWhileTheyreDown = {
 		displayName: "Hit 'Em While They're Down",
-		ids: ["perk_general_damageboostondebuffhit"],
+		slugs: ["perk_general_damageboostondebuffhit"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_damageboostondebuffhit",
-				description: "Your team deals 5% increased damageundefined when hitting debuffed enemies."
+				description: "Your team deals 5% increased damage when hitting debuffed enemies."
 			}
 		]
 	}
 
 	static ChronosConnection = {
 		displayName: "Chronos Connection",
-		ids: ["perk_general_abilitycooldownreduction_medium", "perk_general_abilitycooldownreduction_large"],
+		slugs: ["perk_general_abilitycooldownreduction_medium", "perk_general_abilitycooldownreduction_large"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -1498,7 +1498,7 @@ class PerkData {
 
 	static ShieldOfAthena = {
 		displayName: "Shield of Athena",
-		ids: ["perk_wonderwoman_projectileblock"],
+		slugs: ["perk_wonderwoman_projectileblock"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1511,7 +1511,7 @@ class PerkData {
 
 	static WhipOfHephaestus = {
 		displayName: "Whip of Hephaestus",
-		ids: ["perk_wonderwoman_lassotipper"],
+		slugs: ["perk_wonderwoman_lassotipper"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1524,7 +1524,7 @@ class PerkData {
 
 	static GrappleOfHermes = {
 		displayName: "Grapple of Hermes",
-		ids: ["perk_wonderwoman_lassograpple"],
+		slugs: ["perk_wonderwoman_lassograpple"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1537,59 +1537,59 @@ class PerkData {
 
 	static BackToBack = {
 		displayName: "Back To Back",
-		ids: ["perk_general_backtoback"],
+		slugs: ["perk_general_backtoback"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_backtoback",
-				description: "Your team receives 6% reduced damageundefined when near an ally."
+				description: "Your team receives 6% reduced damage when near an ally."
 			}
 		]
 	}
 
 	static StrongerThanEver = {
 		displayName: "Stronger Than Ever",
-		ids: ["perk_general_armorondeath"],
+		slugs: ["perk_general_armorondeath"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_armorondeath",
-				description: "Your team receives armor for 5 secondsundefined after respawning."
+				description: "Your team receives armor for 5 seconds after respawning."
 			}
 		]
 	}
 
 	static ThePurestOfMotivations = {
 		displayName: "The Purest of Motivations",
-		ids: ["perk_general_inmemoriam"],
+		slugs: ["perk_general_inmemoriam"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_inmemoriam",
-				description: "Your team deals 15% increased damage for 10 secondsundefined after an ally is rung out."
+				description: "Your team deals 15% increased damage for 10 seconds after an ally is rung out."
 			}
 		]
 	}
 
 	static Coffeezilla = {
 		displayName: "Coffeezilla",
-		ids: ["perk_general_abilitycooldownreduction_small"],
+		slugs: ["perk_general_abilitycooldownreduction_small"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_abilitycooldownreduction_small",
-				description: "Your team receives 10% reduced ability cooldown duration.undefined"
+				description: "Your team receives 10% reduced ability cooldown duration."
 			}
 		]
 	}
 
 	static AirMaster = {
 		displayName: "Air Master",
-		ids: ["perk_general_airmeleedamageboost_medium", "perk_general_airmeleedamageboost_large"],
+		slugs: ["perk_general_airmeleedamageboost_medium", "perk_general_airmeleedamageboost_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -1606,13 +1606,13 @@ class PerkData {
 
 	static KryptonianSkin = {
 		displayName: "Kryptonian Skin",
-		ids: ["perk_general_damagereduction_small", "perk_general_damagereduction_medium", "perk_general_damagereduction_large"],
+		slugs: ["perk_general_damagereduction_small", "perk_general_damagereduction_medium", "perk_general_damagereduction_large"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
 			{
 				slug: "perk_general_damagereduction_small",
-				description: "Your team receives 4% reduced incoming damage.undefined"
+				description: "Your team receives 4% reduced incoming damage."
 			},
 			{
 				slug: "perk_general_damagereduction_medium",
@@ -1627,7 +1627,7 @@ class PerkData {
 
 	static HangryMan = {
 		displayName: "Hangry Man",
-		ids: ["perk_shaggy_extrahungry"],
+		slugs: ["perk_shaggy_extrahungry"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1640,7 +1640,7 @@ class PerkData {
 
 	static OneLastZoinks = {
 		displayName: "One Last Zoinks",
-		ids: ["perk_shaggy_dyingrage"],
+		slugs: ["perk_shaggy_dyingrage"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1653,26 +1653,26 @@ class PerkData {
 
 	static Retaliationready = {
 		displayName: "Retaliation-Ready",
-		ids: ["perk_general_projectilegrayhealth"],
+		slugs: ["perk_general_projectilegrayhealth"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_projectilegrayhealth",
-				description: "Your team grants allies 3 gray health for 3 secondsundefined after knocking back enemies with projectiles."
+				description: "Your team grants allies 3 gray health for 3 seconds after knocking back enemies with projectiles."
 			}
 		]
 	}
 
 	static LumpySpacePunch = {
 		displayName: "Lumpy Space Punch",
-		ids: ["perk_general_airmeleedamageboost_small", "perk_general_airmeleeknockbackboost_small"],
+		slugs: ["perk_general_airmeleedamageboost_small", "perk_general_airmeleeknockbackboost_small"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_airmeleedamageboost_small",
-				description: "Your team deals 5% increased damageundefined with melee attacks in the air."
+				description: "Your team deals 5% increased damage with melee attacks in the air."
 			},
 			{
 				slug: "perk_general_airmeleeknockbackboost_small",
@@ -1683,46 +1683,46 @@ class PerkData {
 
 	static LastStand = {
 		displayName: "Last Stand",
-		ids: ["perk_general_laststand"],
+		slugs: ["perk_general_laststand"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
 			{
 				slug: "perk_general_laststand",
-				description: "Your team deals 10% increased damageundefined after reaching 100 damage."
+				description: "Your team deals 10% increased damage after reaching 100 damage."
 			}
 		]
 	}
 
 	static SnowballEffect = {
 		displayName: "Snowball Effect",
-		ids: ["perk_general_culltheweak"],
+		slugs: ["perk_general_culltheweak"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_culltheweak",
-				description: "Your team deals 7% increased damageundefined against the fighter with the highest damage."
+				description: "Your team deals 7% increased damage against the fighter with the highest damage."
 			}
 		]
 	}
 
 	static IllTakeThat = {
 		displayName: "I'll Take That",
-		ids: ["perk_general_abilityrefundondebuffhit"],
+		slugs: ["perk_general_abilityrefundondebuffhit"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_abilityrefundondebuffhit",
-				description: "Your team receives a 0.5 second refund on ability cooldownsundefined after hitting debuffed enemies."
+				description: "Your team receives a 0.5 second refund on ability cooldowns after hitting debuffed enemies."
 			}
 		]
 	}
 
 	static Wounded = {
 		displayName: "Wounded",
-		ids: ["perk_arya_wounded"],
+		slugs: ["perk_arya_wounded"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1735,7 +1735,7 @@ class PerkData {
 
 	static Backstab = {
 		displayName: "Backstab",
-		ids: ["perk_general_backstab"],
+		slugs: ["perk_general_backstab"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -1748,7 +1748,7 @@ class PerkData {
 
 	static Inevitable = {
 		displayName: "Inevitable",
-		ids: ["perk_general_inevitable"],
+		slugs: ["perk_general_inevitable"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -1761,7 +1761,7 @@ class PerkData {
 
 	static Aggro = {
 		displayName: "Aggro",
-		ids: ["perk_general_aggro"],
+		slugs: ["perk_general_aggro"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -1774,7 +1774,7 @@ class PerkData {
 
 	static BombDownSpike = {
 		displayName: "Bomb Down Spike",
-		ids: ["perk_batman_bombdownspike"],
+		slugs: ["perk_batman_bombdownspike"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1787,7 +1787,7 @@ class PerkData {
 
 	static Chimney = {
 		displayName: "Chimney",
-		ids: ["perk_batman_chimney"],
+		slugs: ["perk_batman_chimney"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1800,7 +1800,7 @@ class PerkData {
 
 	static IncreasedBatarangControl = {
 		displayName: "Increased Batarang Control",
-		ids: ["perk_batman_increasedbatarangcontrol"],
+		slugs: ["perk_batman_increasedbatarangcontrol"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1813,7 +1813,7 @@ class PerkData {
 
 	static Revenge = {
 		displayName: "Revenge",
-		ids: ["perk_general_revenge"],
+		slugs: ["perk_general_revenge"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -1826,7 +1826,7 @@ class PerkData {
 
 	static Escapist = {
 		displayName: "Escapist",
-		ids: ["perk_bugsbunny_escapist"],
+		slugs: ["perk_bugsbunny_escapist"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1839,7 +1839,7 @@ class PerkData {
 
 	static HeavyMetal = {
 		displayName: "Heavy Metal",
-		ids: ["perk_bugsbunny_safey"],
+		slugs: ["perk_bugsbunny_safey"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1852,7 +1852,7 @@ class PerkData {
 
 	static RightBackAtYou = {
 		displayName: "Right Back At You",
-		ids: ["perk_C015_tornadoreflect"],
+		slugs: ["perk_C015_tornadoreflect"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1865,7 +1865,7 @@ class PerkData {
 
 	static AllyBarrierGrayHealth = {
 		displayName: "Ally Barrier Gray Health",
-		ids: ["perk_c017_allybarriergrayhealth"],
+		slugs: ["perk_c017_allybarriergrayhealth"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1878,7 +1878,7 @@ class PerkData {
 
 	static BigBrother = {
 		displayName: "Big Brother",
-		ids: ["perk_creature_bigbrother"],
+		slugs: ["perk_creature_bigbrother"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1891,7 +1891,7 @@ class PerkData {
 
 	static WreckingBall = {
 		displayName: "Wrecking Ball",
-		ids: ["perk_creature_wreckingball"],
+		slugs: ["perk_creature_wreckingball"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1904,7 +1904,7 @@ class PerkData {
 
 	static ArmoredCharge = {
 		displayName: "Armored Charge",
-		ids: ["perk_general_armored_charge"],
+		slugs: ["perk_general_armored_charge"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -1917,7 +1917,7 @@ class PerkData {
 
 	static ElvenReflexes = {
 		displayName: "Elven Reflexes",
-		ids: ["perk_general_catch"],
+		slugs: ["perk_general_catch"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -1930,7 +1930,7 @@ class PerkData {
 
 	static BubbleBuddies = {
 		displayName: "Bubble Buddies",
-		ids: ["perk_general_hunkerdown"],
+		slugs: ["perk_general_hunkerdown"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -1943,7 +1943,7 @@ class PerkData {
 
 	static GemSplosion = {
 		displayName: "Gem 'Splosion",
-		ids: ["perk_finn_gemboost"],
+		slugs: ["perk_finn_gemboost"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1956,7 +1956,7 @@ class PerkData {
 
 	static SlowItDown = {
 		displayName: "Slow It Down",
-		ids: ["perk_garnet_slow"],
+		slugs: ["perk_garnet_slow"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -1969,7 +1969,7 @@ class PerkData {
 
 	static HitstunIncrease = {
 		displayName: "Hitstun Increase",
-		ids: ["perk_general_hitstunincrease_small", "perk_general_hitstunincrease_medium", "perk_general_hitstunincrease_large"],
+		slugs: ["perk_general_hitstunincrease_small", "perk_general_hitstunincrease_medium", "perk_general_hitstunincrease_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -1990,7 +1990,7 @@ class PerkData {
 
 	static FloatyBounce = {
 		displayName: "Floaty Bounce",
-		ids: ["perk_jake_floatybounce"],
+		slugs: ["perk_jake_floatybounce"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -2003,7 +2003,7 @@ class PerkData {
 
 	static SafetyNet = {
 		displayName: "Safety Net",
-		ids: ["perk_jake_safetynet"],
+		slugs: ["perk_jake_safetynet"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -2016,7 +2016,7 @@ class PerkData {
 
 	static WeaponMaster = {
 		displayName: "Weapon Master",
-		ids: ["perk_jake_weaponmaster"],
+		slugs: ["perk_jake_weaponmaster"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -2029,7 +2029,7 @@ class PerkData {
 
 	static DensityControl = {
 		displayName: "Density Control",
-		ids: ["perk_general_knockbackmitigation_medium", "perk_general_knockbackmitigation_large"],
+		slugs: ["perk_general_knockbackmitigation_medium", "perk_general_knockbackmitigation_large"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -2046,7 +2046,7 @@ class PerkData {
 
 	static LayOffTheScoobySnax = {
 		displayName: "Lay off the Scooby Snax",
-		ids: ["perk_general_knockbackmitigation_small"],
+		slugs: ["perk_general_knockbackmitigation_small"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -2059,7 +2059,7 @@ class PerkData {
 
 	static PowairPunch = {
 		displayName: "Pow-Air Punch",
-		ids: ["perk_general_airmeleeknockbackboost_medium", "perk_general_airmeleeknockbackboost_large"],
+		slugs: ["perk_general_airmeleeknockbackboost_medium", "perk_general_airmeleeknockbackboost_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -2076,7 +2076,7 @@ class PerkData {
 
 	static TactileTelekinesis = {
 		displayName: "Tactile Telekinesis",
-		ids: ["perk_general_groundmeleeknockbackboost_small", "perk_general_groundmeleeknockbackboost_medium", "perk_general_groundmeleeknockbackboost_large"],
+		slugs: ["perk_general_groundmeleeknockbackboost_small", "perk_general_groundmeleeknockbackboost_medium", "perk_general_groundmeleeknockbackboost_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -2097,7 +2097,7 @@ class PerkData {
 
 	static MithrillTipped = {
 		displayName: "Mithrill Tipped",
-		ids: ["perk_general_projectileknockbackboost_medium", "perk_general_projectileknockbackboost_large"],
+		slugs: ["perk_general_projectileknockbackboost_medium", "perk_general_projectileknockbackboost_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -2114,7 +2114,7 @@ class PerkData {
 
 	static BoxingGloveArrow = {
 		displayName: "Boxing Glove Arrow",
-		ids: ["perk_general_projectileknockbackboost_small"],
+		slugs: ["perk_general_projectileknockbackboost_small"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -2127,7 +2127,7 @@ class PerkData {
 
 	static ArmorMaster = {
 		displayName: "Armor Master",
-		ids: ["perk_general_armorboost_small", "perk_general_armorboost_medium", "perk_general_armorboost_large"],
+		slugs: ["perk_general_armorboost_small", "perk_general_armorboost_medium", "perk_general_armorboost_large"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -2148,7 +2148,7 @@ class PerkData {
 
 	static AttackRecoverySpeed = {
 		displayName: "Attack Recovery Speed",
-		ids: ["perk_general_attackrecoveryspeed_small", "perk_general_attackrecoveryspeed_medium", "perk_general_attackrecoveryspeed_large"],
+		slugs: ["perk_general_attackrecoveryspeed_small", "perk_general_attackrecoveryspeed_medium", "perk_general_attackrecoveryspeed_large"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
@@ -2169,7 +2169,7 @@ class PerkData {
 
 	static NinjaTraining = {
 		displayName: "Ninja Training",
-		ids: ["perk_general_sticktowall"],
+		slugs: ["perk_general_sticktowall"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -2182,7 +2182,7 @@ class PerkData {
 
 	static Regroup = {
 		displayName: "Regroup",
-		ids: ["perk_general_regroup"],
+		slugs: ["perk_general_regroup"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -2195,20 +2195,20 @@ class PerkData {
 
 	static KeepYourDistance = {
 		displayName: "Keep Your Distance",
-		ids: ["perk_general_clearheadspace"],
+		slugs: ["perk_general_clearheadspace"],
 		characterSpecific: false,
 		category: "Offense",
 		levels: [
 			{
 				slug: "perk_general_clearheadspace",
-				description: "Your team's projectiles deal 7% increased damageundefined when there are no other fighters near you."
+				description: "Your team's projectiles deal 7% increased damage when there are no other fighters near you."
 			}
 		]
 	}
 
 	static Abilityrefundonhit = {
 		displayName: "Ability-Refund-On-Hit",
-		ids: ["perk_general_abilityrefundonhit"],
+		slugs: ["perk_general_abilityrefundonhit"],
 		characterSpecific: false,
 		category: "Utility",
 		levels: [
@@ -2221,7 +2221,7 @@ class PerkData {
 
 	static ScaredyCat = {
 		displayName: "Scaredy Cat",
-		ids: ["perk_shaggy_scaredycat"],
+		slugs: ["perk_shaggy_scaredycat"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -2234,7 +2234,7 @@ class PerkData {
 
 	static EmpathyDamage = {
 		displayName: "Empathy Damage",
-		ids: ["perk_general_empathydamage"],
+		slugs: ["perk_general_empathydamage"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -2247,7 +2247,7 @@ class PerkData {
 
 	static BackToReality = {
 		displayName: "Back To Reality",
-		ids: ["perk_general_backtoreality"],
+		slugs: ["perk_general_backtoreality"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -2260,7 +2260,7 @@ class PerkData {
 
 	static Healthy = {
 		displayName: "Healthy",
-		ids: ["perk_general_healthy"],
+		slugs: ["perk_general_healthy"],
 		characterSpecific: false,
 		category: "Defense",
 		levels: [
@@ -2273,7 +2273,7 @@ class PerkData {
 
 	static Geometric = {
 		displayName: "Geometric",
-		ids: ["perk_velma_geometric"],
+		slugs: ["perk_velma_geometric"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -2286,7 +2286,7 @@ class PerkData {
 
 	static GoodReception = {
 		displayName: "Good Reception",
-		ids: ["perk_velma_goodreception"],
+		slugs: ["perk_velma_goodreception"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -2299,7 +2299,7 @@ class PerkData {
 
 	static WonderWomanFastFallSlam = {
 		displayName: "Wonder Woman Fast Fall Slam",
-		ids: ["perk_wonderwoman_fastfallslam"],
+		slugs: ["perk_wonderwoman_fastfallslam"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
@@ -2312,7 +2312,7 @@ class PerkData {
 
 	static PortalMeleeBuff = {
 		displayName: "Portal Melee Buff",
-		ids: ["perk_c020_signature_3"],
+		slugs: ["perk_c020_signature_3"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
