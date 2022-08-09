@@ -178,6 +178,23 @@ class Client {
 		})
 	}
 
+	getAccount(id) {
+		return new Promise(async (resolve, reject) => {
+			if (!id) {
+				throw new Error('A user ID must be provided.');
+			}
+			const data = fetch(base + `/accounts/${id}`, {
+				headers: {
+					'x-hydra-access-token': this.accessToken,
+					'x-hydra-api-key': this.apiKey,
+					'x-hydra-client-id': this.clientId,
+					'x-hydra-user-agent': this.userAgent
+				}
+			})
+			this.handleData(data, resolve, reject);
+		});
+	}
+
 	getProfileLeaderboard(id, type) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
