@@ -1,10 +1,12 @@
 const fetch = require('node-fetch');
 const SteamUser = require("steam-user");
+const { EventEmitter } = require("events")
 
 const base = 'https://dokken-api.wbagora.com'
 
-class Client {
+class Client extends EventEmitter {
 	constructor(username, password) {
+		super()
 		this.steamUser = new SteamUser();
 		this.steamUser.logOn({ accountName: username, password: password });
 		this.apiKey = "51586fdcbd214feb84b0e475b130fce0";
@@ -27,6 +29,7 @@ class Client {
 
 			this.accessToken = data.token
 			this.ready = true;
+			this.emit("ready")
 		})
 	}
 
@@ -300,6 +303,7 @@ class Client {
 			this.handleData(data, resolve, reject);
 		});
 	}
+	
 	batchRequest(requests) {
 		return new Promise((resolve, reject) => {
 			const data = fetch(base + `/batch`, {
