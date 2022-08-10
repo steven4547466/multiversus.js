@@ -4,12 +4,11 @@ const SteamUser = require("steam-user");
 const base = 'https://dokken-api.wbagora.com'
 
 class Client {
-	constructor(username, password, apiKey, clientId, userAgent) {
+	constructor(username, password) {
 		this.steamUser = new SteamUser();
 		this.steamUser.logOn({ accountName: username, password: password });
-		this.apiKey = apiKey;
-		this.clientId = clientId;
-		this.userAgent = userAgent || 'Hydra-Cpp/1.132.0';
+		this.apiKey = "51586fdcbd214feb84b0e475b130fce0";
+		this.userAgent = 'Hydra-Cpp/1.132.0';
 		this.ready = false;
 		this.steamUser.on("loggedOn", () => {
 			this.refreshAppToken()
@@ -64,7 +63,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -102,7 +100,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -149,7 +146,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -170,7 +166,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -187,7 +182,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -211,7 +205,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -238,7 +231,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -259,7 +251,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -283,7 +274,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -304,7 +294,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
@@ -317,7 +306,6 @@ class Client {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent,
 					'Content-Type': 'application/json'
 				},
@@ -338,7 +326,6 @@ class Client {
 			const data = fetch(base + `/access`, {
 				headers: {
 					'x-hydra-api-key': this.apiKey,
-					'x-hydra-client-id': this.clientId,
 					'x-hydra-user-agent': this.userAgent,
 					'Content-Type': 'application/json'
 				},
