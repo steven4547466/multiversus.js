@@ -34,7 +34,9 @@ class Client extends EventEmitter {
 	}
 
 	handleData(data, resolve, reject) {
+		let response
 		data.then(res => {
+			response = res
 			if (res.status == 401) {
 				this.refreshAppToken()
 				return reject({ code: 401, msg: 'Invalid access token.' });
@@ -42,8 +44,12 @@ class Client extends EventEmitter {
 			return res.text();
 		}).then(json => {
 			try {
-				if (JSON.parse(json).msg) {
-					return reject(new Error(JSON.parse(json).msg));
+				let parsed = JSON.parse(json)
+				if (response.status <= 199 || response.status >= 300) {
+					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
+				}
+				if (parsed.msg) {
+					return reject(new Error(parsed.msg));
 				}
 			} catch (e) {
 				return reject(new Error("Invalid JSON.\n" + json));
@@ -69,17 +75,23 @@ class Client extends EventEmitter {
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
+			
+			let response
 			data.then(res => {
+				response = res
 				if (res.status == 401) {
 					this.refreshAppToken()
 					return reject({ code: 401, msg: 'Invalid access token.' });
 				}
 				return res.text();
 			}).then(json => {
-				if (JSON.parse(json).msg) {
-					return reject(new Error(JSON.parse(json).msg));
-				}
 				let parsed = JSON.parse(json)
+				if (response.status <= 199 || response.status >= 300) {
+					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
+				}
+				if (parsed.msg) {
+					return reject(new Error(parsed.msg));
+				}
 
 				if (platform) {
 					parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] ? p.result.account.identity.alternate[platform][0].username.toLowerCase().includes(username.toLowerCase()) : false)
@@ -106,17 +118,23 @@ class Client extends EventEmitter {
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
+
+			let response
 			data.then(res => {
+				response = res
 				if (res.status == 401) {
 					this.refreshAppToken()
 					return reject({ code: 401, msg: 'Invalid access token.' });
 				}
 				return res.text();
 			}).then(async json => {
-				if (JSON.parse(json).msg) {
-					return reject(new Error(JSON.parse(json).msg));
-				}
 				let parsed = JSON.parse(json)
+				if (response.status <= 199 || response.status >= 300) {
+					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
+				}
+				if (parsed.msg) {
+					return reject(new Error(parsed.msg));
+				}
 
 				if (platform) {
 					parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] && p.result.account.identity.alternate[platform][0].username ? p.result.account.identity.alternate[platform][0].username.toLowerCase() == username.toLowerCase() : false)
@@ -303,7 +321,7 @@ class Client extends EventEmitter {
 			this.handleData(data, resolve, reject);
 		});
 	}
-	
+
 	batchRequest(requests) {
 		return new Promise((resolve, reject) => {
 			const data = fetch(base + `/batch`, {
