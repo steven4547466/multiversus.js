@@ -49,10 +49,10 @@ class Client extends EventEmitter {
 					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
 				}
 				if (parsed.msg) {
-					return reject(new Error(parsed.msg));
+					return reject(parsed.msg);
 				}
 			} catch (e) {
-				return reject(new Error("Invalid JSON.\n" + json));
+				return reject("Invalid JSON.\n" + json);
 			}
 
 			return resolve(JSON.parse(json));
@@ -62,11 +62,11 @@ class Client extends EventEmitter {
 	searchByUsername(username, limit = 25, cursor = null, platform = null) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (!username) {
-				return reject(new Error('A query must be provided.'))
+				return reject('A query must be provided.')
 			}
 			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
 				headers: {
@@ -75,7 +75,7 @@ class Client extends EventEmitter {
 					'x-hydra-user-agent': this.userAgent
 				}
 			})
-			
+
 			let response
 			data.then(res => {
 				response = res
@@ -90,7 +90,7 @@ class Client extends EventEmitter {
 					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
 				}
 				if (parsed.msg) {
-					return reject(new Error(parsed.msg));
+					return reject(parsed.msg);
 				}
 
 				if (platform) {
@@ -105,11 +105,11 @@ class Client extends EventEmitter {
 	searchExactUsername(username, limit = 25, cursor = null, platform = null) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (!username) {
-				return reject(new Error('A query must be provided.'))
+				return reject('A query must be provided.')
 			}
 			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
 				headers: {
@@ -133,7 +133,7 @@ class Client extends EventEmitter {
 					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
 				}
 				if (parsed.msg) {
-					return reject(new Error(parsed.msg));
+					return reject(parsed.msg);
 				}
 
 				if (platform) {
@@ -157,11 +157,11 @@ class Client extends EventEmitter {
 	getMatch(id) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (!id) {
-				return reject(new Error('A match ID must be provided.'))
+				return reject('A match ID must be provided.')
 			}
 			const data = fetch(base + `/matches/${id}`, {
 				headers: {
@@ -177,7 +177,7 @@ class Client extends EventEmitter {
 	getProfile(id) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (!id) {
@@ -197,7 +197,7 @@ class Client extends EventEmitter {
 	getAccount(id) {
 		return new Promise(async (resolve, reject) => {
 			if (!id) {
-				throw new Error('A user ID must be provided.');
+				reject('A user ID must be provided.');
 			}
 			const data = fetch(base + `/accounts/${id}`, {
 				headers: {
@@ -213,14 +213,14 @@ class Client extends EventEmitter {
 	getProfileLeaderboard(id, type) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (type !== '2v2' && type !== '1v1') {
-				return reject(new Error('Leaderboard type must be 1v1 or 2v2.'));
+				return reject('Leaderboard type must be 1v1 or 2v2.');
 			}
 			if (!id) {
-				return reject(new Error('A user ID must be provided.'));
+				return reject('A user ID must be provided.');
 			}
 			const data = fetch(base + `/leaderboards/${type}/score-and-rank/${id}`, {
 				headers: {
@@ -236,17 +236,17 @@ class Client extends EventEmitter {
 	getProfileLeaderboardForCharacter(id, type, character) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (type !== '2v2' && type !== '1v1') {
-				return reject(new Error('Leaderboard type must be 1v1 or 2v2.'));
+				return reject('Leaderboard type must be 1v1 or 2v2.');
 			}
 			if (!id) {
-				return reject(new Error('A user ID must be provided.'));
+				return reject('A user ID must be provided.');
 			}
 			if (!character) {
-				return reject(new Error('A character must be provided.'));
+				return reject('A character must be provided.');
 			}
 			const data = fetch(base + `/leaderboards/${character}_${type}/score-and-rank/${id}`, {
 				headers: {
@@ -262,11 +262,11 @@ class Client extends EventEmitter {
 	getLeaderboard(type) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (type !== '2v2' && type !== '1v1') {
-				return reject(new Error('Leaderboard type must be 1v1 or 2v2.'));
+				return reject('Leaderboard type must be 1v1 or 2v2.');
 			}
 			const data = fetch(base + `/leaderboards/${type}/show`, {
 				headers: {
@@ -282,14 +282,14 @@ class Client extends EventEmitter {
 	getLeaderboardForCharacter(type, character) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (type !== '2v2' && type !== '1v1') {
-				return reject(new Error('Leaderboard type must be 1v1 or 2v2.'));
+				return reject('Leaderboard type must be 1v1 or 2v2.');
 			}
 			if (!character) {
-				return reject(new Error('A character must be provided.'));
+				return reject('A character must be provided.');
 			}
 			const data = fetch(base + `/leaderboards/${character}_${type}/show`, {
 				headers: {
@@ -305,11 +305,11 @@ class Client extends EventEmitter {
 	getMatches(id, page = 1) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
-				return reject(new Error('Client is not ready.'));
+				return reject('Client is not ready.');
 			}
 
 			if (!id) {
-				return reject(new Error('A user ID must be provided.'));
+				return reject('A user ID must be provided.');
 			}
 			const data = fetch(base + `/matches/all/${id}?page=${page}`, {
 				headers: {
