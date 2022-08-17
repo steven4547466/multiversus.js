@@ -474,6 +474,12 @@ class CharacterData {
 		"displayName": "Rick Sanchez",
 		"aliases": ["Rick"]
 	}
+
+	static MortySmith = {
+		"id": "character_c019",
+		"displayName": "Morty Smith",
+		"aliases": ["Morty"]
+	}
 }
 
 class PerkData {
@@ -2334,7 +2340,164 @@ class PerkData {
 			}
 		]
 	}
+
+	static UnknownPerk1 = {
+		displayName: "Unknown Perk 1",
+		slugs: ["perk_C019_hammer"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_C019_hammer",
+				description: ""
+			}
+		]
+	}
+
+	static UnknownPerk2 = {
+		displayName: "Unknown Perk 2",
+		slugs: ["perk_C019_cook"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_C019_cook",
+				description: ""
+			}
+		]
+	}
+
+	static UnknownPerk3 = {
+		displayName: "Unknown Perk 3",
+		slugs: ["perk_C019_cleaner"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_C019_cleaner",
+				description: ""
+			}
+		]
+	}
 }
+
+/*
+"MasteryRewards": {
+						"1": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_general_chargearmorbreak",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"2": [
+							{
+								"GrantType": "inc",
+								"Slug": "match_toasts",
+								"Type": "Inventory",
+								"Count": 5
+							}
+						],
+						"3": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_general_backtoback",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"4": [
+							{
+								"GrantType": "inc",
+								"Slug": "gold",
+								"Type": "Inventory",
+								"Count": 100
+							}
+						],
+						"5": [
+							{
+								"GrantType": "set",
+								"Slug": "ally_perk_sharing",
+								"Type": "AllyPerkSharing",
+								"Count": 1
+							}
+						],
+						"6": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_general_evadedistance_small",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"7": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_C019_hammer",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"8": [
+							{
+								"GrantType": "set",
+								"Slug": "perk_training_enabled",
+								"Type": "PerkTrainingSlot",
+								"Count": 1
+							}
+						],
+						"9": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_C019_cook",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"10": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_general_projectiledamageboost_small",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"11": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_C019_cleaner",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"12": [
+							{
+								"GrantType": "inc",
+								"Slug": "perk_general_abilitycooldownreduction_small",
+								"Type": "Perk",
+								"Count": 1
+							}
+						],
+						"13": [
+							{
+								"GrantType": "inc",
+								"Slug": "profile_icon_mastery_c019",
+								"Type": "Inventory",
+								"Count": 1
+							}
+						],
+						"14": [
+							{
+								"GrantType": "inc",
+								"Slug": "stat_tracking_bundle_c019_wins",
+								"Type": "Inventory",
+								"Count": 1
+							}
+						]
+					}
+				},
+*/
 
 module.exports = {
 	Client,
