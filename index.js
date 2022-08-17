@@ -15,6 +15,9 @@ class Client extends EventEmitter {
 		this.steamUser.on("loggedOn", () => {
 			this.refreshAppToken()
 		})
+		this.steamUser.on("error", (err) => {
+			console.error(err)
+		})
 	}
 
 	refreshAppToken() {
@@ -259,7 +262,7 @@ class Client extends EventEmitter {
 		});
 	}
 
-	getLeaderboard(type) {
+	getLeaderboard(type, page = 1) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
 				return reject('Client is not ready.');
@@ -268,7 +271,7 @@ class Client extends EventEmitter {
 			if (type !== '2v2' && type !== '1v1') {
 				return reject('Leaderboard type must be 1v1 or 2v2.');
 			}
-			const data = fetch(base + `/leaderboards/${type}/show`, {
+			const data = fetch(base + `/leaderboards/${type}/show?page=${page}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
@@ -279,7 +282,7 @@ class Client extends EventEmitter {
 		});
 	}
 
-	getLeaderboardForCharacter(type, character) {
+	getLeaderboardForCharacter(type, character, page = 1) {
 		return new Promise((resolve, reject) => {
 			if (!this.ready) {
 				return reject('Client is not ready.');
@@ -291,7 +294,7 @@ class Client extends EventEmitter {
 			if (!character) {
 				return reject('A character must be provided.');
 			}
-			const data = fetch(base + `/leaderboards/${character}_${type}/show`, {
+			const data = fetch(base + `/leaderboards/${character}_${type}/show?page=${page}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
