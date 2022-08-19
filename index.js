@@ -339,7 +339,7 @@ class Client extends EventEmitter {
 					options: {
 						allow_failures: false,
 					},
-					requests
+					requests: requests.map(r => r.url ? r : { headers: {}, url: r, verb: 'GET' })
 				})
 			})
 			this.handleData(data, resolve, reject);
