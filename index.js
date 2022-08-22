@@ -337,7 +337,7 @@ class Client extends EventEmitter {
 				method: 'PUT',
 				body: JSON.stringify({
 					options: {
-						allow_failures: false,
+						allow_failures: true,
 					},
 					requests: requests.map(r => r.url ? r : { headers: {}, url: r, verb: 'GET' })
 				})
