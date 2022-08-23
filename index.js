@@ -62,7 +62,19 @@ class Client extends EventEmitter {
 				return;
 			}
 
-			let data = await this.refreshAccessToken(appTicket.toString("hex"))
+			let data
+			try {
+				data = await this.refreshAccessToken(appTicket.toString("hex"))
+			}
+			catch (e) {
+				if (e.code == 503) {
+					// console.error("Maintenance mode active. Retrying in 2 minutes.");
+					setTimeout(() => {
+						this.refreshAppToken();
+					}, 120000);
+					return;
+				}
+			}
 
 			this.accessToken = data.token
 			this.ready = true;
