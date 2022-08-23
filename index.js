@@ -1,5 +1,5 @@
-const fetch = require('node-fetch');
-const SteamUser = require("steam-user");
+const https = require("node:https")
+const SteamUser = require("steam-user")
 const { EventEmitter } = require("events")
 
 const base = 'https://dokken-api.wbagora.com'
@@ -20,6 +20,40 @@ class Client extends EventEmitter {
 		})
 	}
 
+	fetch(url, options) {
+		if (!options.method)
+			options.method = "GET"
+
+		if (!options.localAddress && this.localAddress)
+			options.localAddress = this.localAddress
+
+		return new Promise((resolve, reject) => {
+			const req = https.request(url, options, (res) => {
+				res.setEncoding("utf8")
+				let body = ''
+				res.on("data", (chunk) => {
+					body += chunk
+				})
+
+				res.on("end", () => {
+					resolve({ status: res.statusCode, body })
+				})
+
+				res.on("error", (e) => {
+					reject(e)
+				})
+			})
+
+			req.on("error", (e) => {
+				reject(e)
+			})
+
+			if (options.body)
+				req.write(options.body)
+			req.end()
+		})
+	}
+
 	refreshAppToken() {
 		this.ready = false;
 		this.steamUser.createEncryptedAppTicket(1818750, async (err, appTicket) => {
@@ -37,28 +71,23 @@ class Client extends EventEmitter {
 	}
 
 	handleData(data, resolve, reject) {
-		let response
 		data.then(res => {
-			response = res
 			if (res.status == 401) {
 				this.refreshAppToken()
 				return reject({ code: 401, msg: 'Invalid access token.' });
 			}
-			return res.text();
-		}).then(json => {
 			try {
-				let parsed = JSON.parse(json)
-				if (response.status <= 199 || response.status >= 300) {
+				let parsed = JSON.parse(res.body)
+				if (res.status <= 199 || res.status >= 300) {
 					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
 				}
 				if (parsed.msg) {
 					return reject(parsed.msg);
 				}
+				return resolve(parsed);
 			} catch (e) {
-				return reject("Invalid JSON.\n" + json);
+				return reject("Invalid JSON.\n" + res.body);
 			}
-
-			return resolve(JSON.parse(json));
 		})
 	}
 
@@ -71,36 +100,39 @@ class Client extends EventEmitter {
 			if (!username) {
 				return reject('A query must be provided.')
 			}
-			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
+			const data = this.fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 
-			let response
 			data.then(res => {
-				response = res
 				if (res.status == 401) {
 					this.refreshAppToken()
 					return reject({ code: 401, msg: 'Invalid access token.' });
 				}
-				return res.text();
-			}).then(json => {
-				let parsed = JSON.parse(json)
-				if (response.status <= 199 || response.status >= 300) {
-					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
-				}
-				if (parsed.msg) {
-					return reject(parsed.msg);
-				}
+				try {
+					let parsed = JSON.parse(res.body)
+					if (res.status <= 199 || res.status >= 300) {
+						return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
+					}
+					if (parsed.msg) {
+						return reject(parsed.msg);
+					}
+					if (platform) {
+						parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] ? p.result.account.identity.alternate[platform][0].username.toLowerCase().includes(username.toLowerCase()) : false)
+					}
 
-				if (platform) {
-					parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] ? p.result.account.identity.alternate[platform][0].username.toLowerCase().includes(username.toLowerCase()) : false)
+					return resolve(parsed);
+				} catch (e) {
+					return reject("Invalid JSON.\n" + res.body);
 				}
-
-				return resolve(parsed);
+			}).catch(e => {
+				return reject(e)
 			})
 		});
 	}
@@ -114,45 +146,48 @@ class Client extends EventEmitter {
 			if (!username) {
 				return reject('A query must be provided.')
 			}
-			const data = fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
+			const data = this.fetch(base + `/profiles/search_queries/get-by-username/run?username=${username}&limit=${limit}&${cursor ? `cursor=${cursor}&` : ""}account_fields=identity&account_fields=presence&account_fields=server_data&account_fields=data`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 
-			let response
-			data.then(res => {
-				response = res
+			data.then(async res => {
 				if (res.status == 401) {
 					this.refreshAppToken()
 					return reject({ code: 401, msg: 'Invalid access token.' });
 				}
-				return res.text();
-			}).then(async json => {
-				let parsed = JSON.parse(json)
-				if (response.status <= 199 || response.status >= 300) {
-					return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
-				}
-				if (parsed.msg) {
-					return reject(parsed.msg);
-				}
-
-				if (platform) {
-					parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] && p.result.account.identity.alternate[platform][0].username ? p.result.account.identity.alternate[platform][0].username.toLowerCase() == username.toLowerCase() : false)
-				}
-
-				if (parsed.results.length == 0) {
-					if (parsed.cursor && parsed.cursor.trim().length > 0) {
-						return resolve(await this.searchExactUsername(username, 100, parsed.cursor, platform))
+				try {
+					let parsed = JSON.parse(res.body)
+					if (res.status <= 199 || res.status >= 300) {
+						return reject({ code: response.status, msg: parsed.msg ? parsed.msg : 'Unknown error' });
 					}
-					else {
-						return resolve(null)
+					if (parsed.msg) {
+						return reject(parsed.msg);
 					}
-				}
+					if (platform) {
+						parsed.results = parsed.results.filter(p => p.result && p.result.account && p.result.account.identity && p.result.account.identity.alternate && p.result.account.identity.alternate[platform] && p.result.account.identity.alternate[platform][0].username ? p.result.account.identity.alternate[platform][0].username.toLowerCase() == username.toLowerCase() : false)
+					}
 
-				return resolve(parsed.results[0].result);
+					if (parsed.results.length == 0) {
+						if (parsed.cursor && parsed.cursor.trim().length > 0) {
+							return resolve(await this.searchExactUsername(username, 100, parsed.cursor, platform))
+						}
+						else {
+							return resolve(null)
+						}
+					}
+
+					return resolve(parsed.results[0].result);
+				} catch (e) {
+					return reject("Invalid JSON.\n" + res.body);
+				}
+			}).catch(e => {
+				return reject(e)
 			})
 		});
 	}
@@ -166,12 +201,14 @@ class Client extends EventEmitter {
 			if (!id) {
 				return reject('A match ID must be provided.')
 			}
-			const data = fetch(base + `/matches/${id}`, {
+			const data = this.fetch(base + `/matches/${id}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		})
@@ -186,12 +223,14 @@ class Client extends EventEmitter {
 			if (!id) {
 				return reject(Error('A user ID must be provided.'))
 			}
-			const data = fetch(base + `/profiles/${id}`, {
+			const data = this.fetch(base + `/profiles/${id}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		})
@@ -202,12 +241,14 @@ class Client extends EventEmitter {
 			if (!id) {
 				reject('A user ID must be provided.');
 			}
-			const data = fetch(base + `/accounts/${id}`, {
+			const data = this.fetch(base + `/accounts/${id}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		});
@@ -225,12 +266,14 @@ class Client extends EventEmitter {
 			if (!id) {
 				return reject('A user ID must be provided.');
 			}
-			const data = fetch(base + `/leaderboards/${type}/score-and-rank/${id}`, {
+			const data = this.fetch(base + `/leaderboards/${type}/score-and-rank/${id}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		});
@@ -251,12 +294,14 @@ class Client extends EventEmitter {
 			if (!character) {
 				return reject('A character must be provided.');
 			}
-			const data = fetch(base + `/leaderboards/${character}_${type}/score-and-rank/${id}`, {
+			const data = this.fetch(base + `/leaderboards/${character}_${type}/score-and-rank/${id}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		});
@@ -271,12 +316,14 @@ class Client extends EventEmitter {
 			if (type !== '2v2' && type !== '1v1') {
 				return reject('Leaderboard type must be 1v1 or 2v2.');
 			}
-			const data = fetch(base + `/leaderboards/${type}/show?page=${page}`, {
+			const data = this.fetch(base + `/leaderboards/${type}/show?page=${page}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		});
@@ -294,12 +341,14 @@ class Client extends EventEmitter {
 			if (!character) {
 				return reject('A character must be provided.');
 			}
-			const data = fetch(base + `/leaderboards/${character}_${type}/show?page=${page}`, {
+			const data = this.fetch(base + `/leaderboards/${character}_${type}/show?page=${page}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		});
@@ -314,12 +363,14 @@ class Client extends EventEmitter {
 			if (!id) {
 				return reject('A user ID must be provided.');
 			}
-			const data = fetch(base + `/matches/all/${id}?page=${page}`, {
+			const data = this.fetch(base + `/matches/all/${id}?page=${page}`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent
 				}
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		});
@@ -327,7 +378,7 @@ class Client extends EventEmitter {
 
 	batchRequest(requests) {
 		return new Promise((resolve, reject) => {
-			const data = fetch(base + `/batch`, {
+			const data = this.fetch(base + `/batch`, {
 				headers: {
 					'x-hydra-access-token': this.accessToken,
 					'x-hydra-api-key': this.apiKey,
@@ -348,7 +399,7 @@ class Client extends EventEmitter {
 
 	refreshAccessToken(steamToken) {
 		return new Promise((resolve, reject) => {
-			const data = fetch(base + `/access`, {
+			const data = this.fetch(base + `/access`, {
 				headers: {
 					'x-hydra-api-key': this.apiKey,
 					'x-hydra-user-agent': this.userAgent,
@@ -356,6 +407,8 @@ class Client extends EventEmitter {
 				},
 				method: 'POST',
 				body: JSON.stringify({ auth: { steam: steamToken, fail_on_missing: true } })
+			}).catch(e => {
+				return reject(e)
 			})
 			this.handleData(data, resolve, reject);
 		});
