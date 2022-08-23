@@ -2406,41 +2406,41 @@ class PerkData {
 		]
 	}
 
-	static UnknownPerk1 = {
-		displayName: "Unknown Perk 1",
+	static ImMoreThanJustAHammer = {
+		displayName: "I'm More Than Just A Hammer",
 		slugs: ["perk_C019_hammer"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
 			{
 				slug: "perk_C019_hammer",
-				description: ""
+				description: "When Morty summons Hammer Morty, Morty will spin in a circle hitting around himself multiple times."
 			}
 		]
 	}
 
-	static UnknownPerk2 = {
-		displayName: "Unknown Perk 2",
+	static OhThatsStillAGrenade = {
+		displayName: "Oh That's Still A Grenade",
 		slugs: ["perk_C019_cook"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
 			{
 				slug: "perk_C019_cook",
-				description: ""
+				description: "The explosion radius of Morty's grenades is increased based on their cook duration. Grenades thrown by Morty's allies always have the maximum explosion radius."
 			}
 		]
 	}
 
-	static UnknownPerk3 = {
-		displayName: "Unknown Perk 3",
+	static ExtraFleebJuice = {
+		displayName: "Extra Fleeb Juice",
 		slugs: ["perk_C019_cleaner"],
 		characterSpecific: true,
 		category: "CharacterSpecific",
 		levels: [
 			{
 				slug: "perk_C019_cleaner",
-				description: ""
+				description: "Morty's plumbus leaves the floor extra squeaky clean."
 			}
 		]
 	}
