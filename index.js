@@ -432,49 +432,65 @@ class CharacterData {
 	static Shaggy = {
 		"id": "character_shaggy",
 		"displayName": "Shaggy",
-		"aliases": []
+		"aliases": [],
+		"class": "bruiser",
+		"direction": "hybrid",
 	}
 
 	static WonderWoman = {
 		"id": "character_wonder_woman",
 		"displayName": "Wonder Woman",
-		"aliases": []
+		"aliases": [],
+		"class": "tank",
+		"direction": "horizontal",
 	}
 
 	static Batman = {
 		"id": "character_batman",
 		"displayName": "Batman",
-		"aliases": []
+		"aliases": [],
+		"class": "bruiser",
+		"direction": "vertical",
 	}
 
 	static Superman = {
 		"id": "character_superman",
 		"displayName": "Superman",
-		"aliases": []
+		"aliases": [],
+		"class": "tank",
+		"direction": "hybrid",
 	}
 
 	static Taz = {
 		"id": "character_taz",
 		"displayName": "Taz",
-		"aliases": []
+		"aliases": [],
+		"class": "bruiser",
+		"direction": "horizontal",
 	}
 
 	static IronGiant = {
 		"id": "character_C017",
 		"displayName": "Iron Giant",
-		"aliases": []
+		"aliases": [],
+		"class": "tank",
+		"direction": "hybrid",
 	}
 
 	static Garnet = {
 		"id": "character_garnet",
 		"displayName": "Garnet",
-		"aliases": []
+		"aliases": [],
+		"class": "bruiser",
+		"direction": "horizontal",
 	}
 
 	static StevenUniverse = {
 		"id": "character_steven",
 		"displayName": "Steven Universe",
-		"aliases": []
+		"aliases": [],
+		"class": "support",
+		"direction": "horizontal",
 	}
 
 	static Jake = {
@@ -482,13 +498,17 @@ class CharacterData {
 		"displayName": "Jake the Dog",
 		"aliases": [
 			"Jake"
-		]
+		],
+		"class": "bruiser",
+		"direction": "hybrid",
 	}
 
 	static Reindog = {
 		"id": "character_creature",
 		"displayName": "Reindog",
-		"aliases": []
+		"aliases": [],
+		"class": "support",
+		"direction": "horizontal",
 	}
 
 	static Finn = {
@@ -496,55 +516,73 @@ class CharacterData {
 		"displayName": "Finn the Human",
 		"aliases": [
 			"Finn"
-		]
+		],
+		"class": "assassin",
+		"direction": "horizontal",
 	}
 
 	static Velma = {
 		"id": "character_velma",
 		"displayName": "Velma",
-		"aliases": []
+		"aliases": [],
+		"class": "support",
+		"direction": "horizontal",
 	}
 
 	static AryaStark = {
 		"id": "character_arya",
 		"displayName": "Arya Stark",
-		"aliases": []
+		"aliases": [],
+		"class": "assassin",
+		"direction": "hybrid",
 	}
 
 	static BugsBunny = {
 		"id": "character_bugs_bunny",
 		"displayName": "Bugs Bunny",
-		"aliases": []
+		"aliases": [],
+		"class": "mage",
+		"direction": "hybrid",
 	}
 
 	static HarleyQuinn = {
 		"id": "character_harleyquinn",
 		"displayName": "Harley Quinn",
-		"aliases": []
+		"aliases": [],
+		"class": "assassin",
+		"direction": "vertical",
 	}
 
 	static TomAndJerry = {
 		"id": "character_tom_and_jerry",
 		"displayName": "Tom and Jerry",
-		"aliases": []
+		"aliases": [],
+		"class": "mage",
+		"direction": "hybrid",
 	}
 
 	static LeBronJames = {
 		"id": "character_c16",
 		"displayName": "LeBron James",
-		"aliases": []
+		"aliases": [],
+		"class": "bruiser",
+		"direction": "hybrid",
 	}
 
 	static RickSanchez = {
 		"id": "character_c020",
 		"displayName": "Rick Sanchez",
-		"aliases": ["Rick"]
+		"aliases": ["Rick"],
+		"class": "",
+		"direction": "",
 	}
 
 	static MortySmith = {
 		"id": "character_c019",
 		"displayName": "Morty Smith",
-		"aliases": ["Morty"]
+		"aliases": ["Morty"],
+		"class": "bruiser",
+		"direction": "horizontal",
 	}
 }
 
