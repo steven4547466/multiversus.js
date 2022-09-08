@@ -584,6 +584,14 @@ class CharacterData {
 		"class": "bruiser",
 		"direction": "horizontal",
 	}
+
+	static Gizmo = {
+		"id": "character_C023A",
+		"displayName": "Gizmo",
+		"aliases": [],
+		"class": "support",
+		"direction": "hybrid",
+	}
 }
 
 class PerkData {
@@ -2480,6 +2488,45 @@ class PerkData {
 			{
 				slug: "perk_C019_cleaner",
 				description: "Morty's plumbus leaves the floor extra squeaky clean."
+			}
+		]
+	}
+
+	static PowerCuddle = {
+		displayName: "Power Cuddle",
+		slugs: ["perk_c023a_backpack"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c023a_backpack",
+				description: "While attached to his ally, Gizmo's charge attacks charge much faster."
+			}
+		]
+	}
+
+	static BounceBounceBoom = {
+		displayName: "Bounce, Bounce, Boom!",
+		slugs: ["perk_c023a_bounce"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c023a_bounce",
+				description: "Gizmo's air down special can bounce off of his popcorn and his toy car to detonate them instantly."
+			}
+		]
+	}
+
+	static RhythmsGonnaGetcha = {
+		displayName: "Rhythm's Gonna Getcha",
+		slugs: ["perk_c023a_dance"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c023a_dance",
+				description: "If Gizmo fully stacks Music on an enemy, instead of silencing them he will cause them to dance."
 			}
 		]
 	}
