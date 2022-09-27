@@ -570,7 +570,7 @@ class CharacterData {
 	}
 
 	static RickSanchez = {
-		"id": "character_c020",
+		"id": "character_C020",
 		"displayName": "Rick Sanchez",
 		"aliases": ["Rick"],
 		"class": "",
