@@ -592,6 +592,14 @@ class CharacterData {
 		"class": "support",
 		"direction": "hybrid",
 	}
+
+	static Stripe = {
+		"id": "character_C023B",
+		"displayName": "Stripe",
+		"aliases": [],
+		"class": "assassin",
+		"direction": "horizontal",
+	}
 }
 
 class PerkData {
