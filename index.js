@@ -2538,6 +2538,45 @@ class PerkData {
 			}
 		]
 	}
+
+	static FeedingAfterMidnight = {
+		displayName: "Feeding After Midnight",
+		slugs: ["perk_c023B_attach"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c023B_attach",
+				description: "Debuffs applied to Stripe have a longer duration. If he latches on to an enemy, he cleanses all active debuffs and applies a copy of those debuffs to his attached enemy."
+			}
+		]
+	}
+
+	static HesTheLeader = {
+		displayName: "He's The Leader",
+		slugs: ["perk_c023B_leap"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c023B_leap",
+				description: "When Stripe leaps off of his team's projectiles, he leaps much farther than usual and gains a speed buff for a short duration."
+			}
+		]
+	}
+
+	static BoomBoomBounce = {
+		displayName: "Boom, Boom, Bounce!",
+		slugs: ["perk_c023B_dynamite"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c023B_dynamite",
+				description: "If Stripe launches himself with his dynamite into terrain, he will create another large explosion at his location."
+			}
+		]
+	}
 }
 
 module.exports = {
