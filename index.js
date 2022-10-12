@@ -598,7 +598,7 @@ class CharacterData {
 		"displayName": "Stripe",
 		"aliases": [],
 		"class": "assassin",
-		"direction": "horizontal",
+		"direction": "hybrid",
 	}
 }
 
