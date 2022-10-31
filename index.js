@@ -430,175 +430,187 @@ class Client extends EventEmitter {
 
 class CharacterData {
 	static Shaggy = {
-		"id": "character_shaggy",
-		"displayName": "Shaggy",
-		"aliases": [],
-		"class": "bruiser",
-		"direction": "hybrid",
+		id: "character_shaggy",
+		displayName: "Shaggy",
+		aliases: [],
+		class: "bruiser",
+		direction: "hybrid",
 	}
 
 	static WonderWoman = {
-		"id": "character_wonder_woman",
-		"displayName": "Wonder Woman",
-		"aliases": [],
-		"class": "tank",
-		"direction": "horizontal",
+		id: "character_wonder_woman",
+		displayName: "Wonder Woman",
+		aliases: [],
+		class: "tank",
+		direction: "horizontal",
 	}
 
 	static Batman = {
-		"id": "character_batman",
-		"displayName": "Batman",
-		"aliases": [],
-		"class": "bruiser",
-		"direction": "vertical",
+		id: "character_batman",
+		displayName: "Batman",
+		aliases: [],
+		class: "bruiser",
+		direction: "vertical",
 	}
 
 	static Superman = {
-		"id": "character_superman",
-		"displayName": "Superman",
-		"aliases": [],
-		"class": "tank",
-		"direction": "hybrid",
+		id: "character_superman",
+		displayName: "Superman",
+		aliases: [],
+		class: "tank",
+		direction: "hybrid",
 	}
 
 	static Taz = {
-		"id": "character_taz",
-		"displayName": "Taz",
-		"aliases": [],
-		"class": "bruiser",
-		"direction": "horizontal",
+		id: "character_taz",
+		displayName: "Taz",
+		aliases: [],
+		class: "bruiser",
+		direction: "horizontal",
 	}
 
 	static IronGiant = {
-		"id": "character_C017",
-		"displayName": "Iron Giant",
-		"aliases": [],
-		"class": "tank",
-		"direction": "hybrid",
+		id: "character_C017",
+		displayName: "Iron Giant",
+		aliases: [],
+		class: "tank",
+		direction: "hybrid",
 	}
 
 	static Garnet = {
-		"id": "character_garnet",
-		"displayName": "Garnet",
-		"aliases": [],
-		"class": "bruiser",
-		"direction": "horizontal",
+		id: "character_garnet",
+		displayName: "Garnet",
+		aliases: [],
+		class: "bruiser",
+		direction: "horizontal",
 	}
 
 	static StevenUniverse = {
-		"id": "character_steven",
-		"displayName": "Steven Universe",
-		"aliases": [],
-		"class": "support",
-		"direction": "horizontal",
+		id: "character_steven",
+		displayName: "Steven Universe",
+		aliases: [],
+		class: "support",
+		direction: "horizontal",
 	}
 
 	static Jake = {
-		"id": "character_jake",
-		"displayName": "Jake the Dog",
-		"aliases": [
+		id: "character_jake",
+		displayName: "Jake the Dog",
+		aliases: [
 			"Jake"
 		],
-		"class": "bruiser",
-		"direction": "hybrid",
+		class: "bruiser",
+		direction: "hybrid",
 	}
 
 	static Reindog = {
-		"id": "character_creature",
-		"displayName": "Reindog",
-		"aliases": [],
-		"class": "support",
-		"direction": "horizontal",
+		id: "character_creature",
+		displayName: "Reindog",
+		aliases: [],
+		class: "support",
+		direction: "horizontal",
 	}
 
 	static Finn = {
-		"id": "character_finn",
-		"displayName": "Finn the Human",
-		"aliases": [
+		id: "character_finn",
+		displayName: "Finn the Human",
+		aliases: [
 			"Finn"
 		],
-		"class": "assassin",
-		"direction": "horizontal",
+		class: "assassin",
+		direction: "horizontal",
 	}
 
 	static Velma = {
-		"id": "character_velma",
-		"displayName": "Velma",
-		"aliases": [],
-		"class": "support",
-		"direction": "horizontal",
+		id: "character_velma",
+		displayName: "Velma",
+		aliases: [],
+		class: "support",
+		direction: "horizontal",
 	}
 
 	static AryaStark = {
-		"id": "character_arya",
-		"displayName": "Arya Stark",
-		"aliases": [],
-		"class": "assassin",
-		"direction": "hybrid",
+		id: "character_arya",
+		displayName: "Arya Stark",
+		aliases: [],
+		class: "assassin",
+		direction: "hybrid",
 	}
 
 	static BugsBunny = {
-		"id": "character_bugs_bunny",
-		"displayName": "Bugs Bunny",
-		"aliases": [],
-		"class": "mage",
-		"direction": "hybrid",
+		id: "character_bugs_bunny",
+		displayName: "Bugs Bunny",
+		aliases: [],
+		class: "mage",
+		direction: "hybrid",
 	}
 
 	static HarleyQuinn = {
-		"id": "character_harleyquinn",
-		"displayName": "Harley Quinn",
-		"aliases": [],
-		"class": "assassin",
-		"direction": "vertical",
+		id: "character_harleyquinn",
+		displayName: "Harley Quinn",
+		aliases: [],
+		class: "assassin",
+		direction: "vertical",
 	}
 
 	static TomAndJerry = {
-		"id": "character_tom_and_jerry",
-		"displayName": "Tom and Jerry",
-		"aliases": [],
-		"class": "mage",
-		"direction": "hybrid",
+		id: "character_tom_and_jerry",
+		displayName: "Tom and Jerry",
+		aliases: [],
+		class: "mage",
+		direction: "hybrid",
 	}
 
 	static LeBronJames = {
-		"id": "character_c16",
-		"displayName": "LeBron James",
-		"aliases": [],
-		"class": "bruiser",
-		"direction": "hybrid",
+		id: "character_c16",
+		displayName: "LeBron James",
+		aliases: [],
+		class: "bruiser",
+		direction: "hybrid",
 	}
 
 	static RickSanchez = {
-		"id": "character_C020",
-		"displayName": "Rick Sanchez",
-		"aliases": ["Rick"],
-		"class": "",
-		"direction": "",
+		id: "character_C020",
+		displayName: "Rick Sanchez",
+		aliases: ["Rick"],
+		class: "",
+		direction: "",
 	}
 
 	static MortySmith = {
-		"id": "character_c019",
-		"displayName": "Morty Smith",
-		"aliases": ["Morty"],
-		"class": "bruiser",
-		"direction": "horizontal",
+		id: "character_c019",
+		displayName: "Morty Smith",
+		aliases: ["Morty"],
+		class: "bruiser",
+		direction: "horizontal",
 	}
 
 	static Gizmo = {
-		"id": "character_C023A",
-		"displayName": "Gizmo",
-		"aliases": [],
-		"class": "support",
-		"direction": "hybrid",
+		id: "character_C023A",
+		displayName: "Gizmo",
+		aliases: [],
+		class: "support",
+		direction: "hybrid",
 	}
 
 	static Stripe = {
-		"id": "character_C023B",
-		"displayName": "Stripe",
-		"aliases": [],
-		"class": "assassin",
-		"direction": "hybrid",
+		id: "character_C023B",
+		displayName: "Stripe",
+		aliases: [],
+		class: "assassin",
+		direction: "hybrid",
+	}
+
+	static BlackAdam = {
+		id: "character_C021",
+		displayName: "Black Adam",
+		aliases: [],
+		class: "bruiser",
+		direction: "hybrid",
+	}
+
+	static getCharacterBySlug(slug) {
+		return Object.values(CharacterData).find(character => character.id === slug);
 	}
 }
 
@@ -2577,10 +2589,145 @@ class PerkData {
 			}
 		]
 	}
+
+	static TheStaminaOfShu = {
+		displayName: "The Stamina of Shu",
+		slugs: ["perk_c021_bubble"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c021_bubble",
+				description: "Black Adam's forcefield has a shorter duration, but it follows him as he moves around the map."
+			}
+		]
+	}
+
+	static TheHierarchyOfPower = {
+		displayName: "The Hierarchy Of Power",
+		slugs: ["perk_c021_lightning"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c021_lightning",
+				description: "Black Adam's ground up attack calls lightning to his ally instead of calling lightning to himself."
+			}
+		]
+	}
+
+	static CircuitBreaker = {
+		displayName: "Circuit Breaker",
+		slugs: ["perk_c021_shocked"],
+		characterSpecific: true,
+		category: "CharacterSpecific",
+		levels: [
+			{
+				slug: "perk_c021_shocked",
+				description: "Black Adam deals additional damage to fighters debuffed with shocked."
+			}
+		]
+	}
+
+	static getPerkBySlug(slug) {
+		return Object.values(PerkData).find(perk => perk.slugs != null && perk.slugs.includes(slug));
+	}
+}
+
+class MapData {
+	static Batcave = {
+		displayName: "Batcave",
+		slug: "/Game/Panda_Main/Maps/Map_Batcave/Map_Batcave.Map_Batcave"
+	}
+
+	static Classic3Platform1v1 = {
+		displayName: "Classic 3 Platform (1 vs 1)",
+		slug: "/Game/Panda_Main/Maps/Map_Classic3Platform/Map_Classic3Platform_Small.Map_Classic3Platform_Small"
+	}
+
+	static Classic3Platform = {
+		displayName: "Classic 3 Platform",
+		slug: "/Game/Panda_Main/Maps/Map_Classic3Platform/Map_Classic3Platform_Large.Map_Classic3Platform_Large"
+	}
+
+	static Cromulons = {
+		displayName: "Cromulons",
+		slug: "/Game/Panda_Main/Maps/M009/Map_M009.Map_M009"
+	}
+
+	static Cromulons1v1 = {
+		displayName: "Cromulons (1 vs 1)",
+		slug: "/Game/Panda_Main/Maps/M009/Map_M009_small.Map_M009_small"
+	}
+
+	static SkyArenaPlatforms = {
+		displayName: "Sky Arena Platforms",
+		slug: "/Game/Panda_Main/Maps/M011/Map_M011.Map_M011"
+	}
+
+	static SkyArena = {
+		displayName: "Sky Arena",
+		slug: "/Game/Panda_Main/Maps/M011/Maps/LargeNoPlat/Map_M011_LargeNoPlat.Map_M011_LargeNoPlat"
+	}
+
+	static SkyArenaPlatforms1v1 = {
+		displayName: "Sky Arena Platforms (1 vs 1)",
+		slug: "/Game/Panda_Main/Maps/M011/Maps/Small/Map_M011_Small.Map_M011_Small"
+	}
+
+	static SkyArena1v1 = {
+		displayName: "Sky Arena (1 vs 1)",
+		slug: "/Game/Panda_Main/Maps/M011/Maps/SmallNoPlat/Map_M011_SmallNoPlat.Map_M011_SmallNoPlat"
+	}
+
+	static ScoobysHauntedMansion = {
+		displayName: "Scooby's Haunted Mansion",
+		slug: "/Game/Panda_Main/Maps/ScoobyMansion/Map_ScoobyDoo.Map_ScoobyDoo"
+	}
+
+	static TrainingRoom = {
+		displayName: "Training Room",
+		slug: "/Game/Panda_Main/Maps/ContainerMaps/TrainingContainer.TrainingContainer"
+	}
+
+	static TrainingRoomLarge = {
+		displayName: "Training Room",
+		slug: "/Game/Panda_Main/Maps/TrainingRoomLarge/Map_TrainingRoomLarge.Map_TrainingRoomLarge"
+	}
+
+	static TrainingRoom1v1 = {
+		displayName: "Training Room (1 vs 1)",
+		slug: "/Game/Panda_Main/Maps/TrainingRoomSmall/Map_TrainingRoomSmall.Map_TrainingRoomSmall"
+	}
+
+	static TreeFort = {
+		displayName: "Tree Fort",
+		slug: "/Game/Panda_Main/Maps/Map_TreeHouse/Map_TreeHouse.Map_TreeHouse"
+	}
+
+	static TreeFort1v1 = {
+		displayName: "Tree Fort (1 vs 1)",
+		slug: "/Game/Panda_Main/Maps/Map_TreeHouseSmall/Map_TreeHouseSmall.Map_TreeHouseSmall"
+	}
+
+	static TrophysEdge2 = {
+		displayName: "Trophy's E.D.G.E. 2",
+		slug: "/Game/Panda_Main/Maps/TrophyRoom/Map_TrophyRoom_2platforms.Map_TrophyRoom_2platforms"
+	}
+
+	static TrophysEdge = {
+		displayName: "Trophy's E.D.G.E.",
+		slug: "/Game/Panda_Main/Maps/TrophyRoom/Map_TrophyRoom_LargePlatform.Map_TrophyRoom_LargePlatform"
+	}
+
+	static getMapBySlug(slug) {
+		return Object.values(MapData).find(map => map.slug === slug);
+	}
 }
 
 module.exports = {
 	Client,
 	CharacterData,
-	PerkData
+	PerkData,
+	MapData
 }
